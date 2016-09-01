@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: 1
+  is_capitalizable: false
+  weight: 1
+  release_date: 2016-08-27 21:44:51
+  description: MyText
+  team_id: 1
+
+two:
+  name: MyString
+  status: 1
+  is_capitalizable: false
+  weight: 1
+  release_date: 2016-08-27 21:44:51
+  description: MyText
+  team_id: 1

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  status: false
+  employment_type: 1
+  hourly_rate: 1.5
+  location: 1
+  commencement_date: 2016-08-27 23:30:56
+  termination_date: 2016-08-27 23:30:56
+
+two:
+  name: MyString
+  title: MyString
+  status: false
+  employment_type: 1
+  hourly_rate: 1.5
+  location: 1
+  commencement_date: 2016-08-27 23:30:56
+  termination_date: 2016-08-27 23:30:56
