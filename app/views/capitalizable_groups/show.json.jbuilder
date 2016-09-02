@@ -1,0 +1,1 @@
+json.partial! "capitalizable_groups/capitalizable_group", capitalizable_group: @capitalizable_group

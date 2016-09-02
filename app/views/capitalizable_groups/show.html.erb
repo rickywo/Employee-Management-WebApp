@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Capitalizable rate:</strong>
+  <%= @capitalizable_group.capitalizable_rate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @capitalizable_group.description %>
+</p>
+
+<%= link_to 'Edit', edit_capitalizable_group_path(@capitalizable_group) %> |
+<%= link_to 'Back', capitalizable_groups_path %>

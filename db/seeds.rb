@@ -255,7 +255,7 @@ Employee.create(name: 'Marvolo Gaunt', title: '', status: true, employment_type:
 TeamMember.create(team_id: 4, employee_id: 45, dedication_weight: 100)
 #emplyee 46
 Employee.create(name: 'Oliver Wood', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 1, employee_id: 1, dedication_weight: 100)
+TeamMember.create(team_id: 1, employee_id: 46, dedication_weight: 100)
 #emplyee 47
 Employee.create(name: 'Barty Crouch', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 2, employee_id: 47, dedication_weight: 50)

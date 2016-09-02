@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @iteration.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @iteration.end_date %>
+</p>
+
+<p>
+  <strong>Work day:</strong>
+  <%= @iteration.work_day %>
+</p>
+
+<%= link_to 'Edit', edit_iteration_path(@iteration) %> |
+<%= link_to 'Back', iterations_path %>

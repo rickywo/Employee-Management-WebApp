@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @employee.title %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @employee.status %>
+</p>
+
+<p>
+  <strong>Employment type:</strong>
+  <%= @employee.employment_type %>
+</p>
+
+<p>
+  <strong>Hourly rate:</strong>
+  <%= @employee.hourly_rate %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @employee.location %>
+</p>
+
+<p>
+  <strong>Capitalizable group:</strong>
+  <%= @employee.capitalizable_group_id %>
+</p>
+
+<p>
+  <strong>Commencement date:</strong>
+  <%= @employee.commencement_date %>
+</p>
+
+<p>
+  <strong>Termination date:</strong>
+  <%= @employee.termination_date %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @team_member.team_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @team_member.employee_id %>
+</p>
+
+<p>
+  <strong>Dedication weight:</strong>
+  <%= @team_member.dedication_weight %>
+</p>
+
+<%= link_to 'Edit', edit_team_member_path(@team_member) %> |
+<%= link_to 'Back', team_members_path %>

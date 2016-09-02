@@ -1,0 +1,27 @@
+<%= form_for(capitalizable_group) do |f| %>
+  <% if capitalizable_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(capitalizable_group.errors.count, "error") %> prohibited this capitalizable_group from being saved:</h2>
+
+      <ul>
+      <% capitalizable_group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :capitalizable_rate %>
+    <%= f.number_field :capitalizable_rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
