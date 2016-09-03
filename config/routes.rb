@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :capitalizable_groups
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'capitalizable_groups#index'
+  get '/cap_hour_calculation', to: 'cap_hour_calculation#index'
 end

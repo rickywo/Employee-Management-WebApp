@@ -2,6 +2,89 @@
 
 <h1>Iterations</h1>
 
+<br /><br />
+
+<input type="button" value="Edit in Batch Mode" onclick="startEdit()" />
+<input type="button" value="Save All Rows" onclick="saveRows()" />
+
+<br /><br />
+
+<table id="jqGrid"></table>
+<div id="jqGridPager"></div>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    $("#jqGrid").jqGrid({
+      url: "/iterations",
+      editurl: ' /iterations/update',
+      datatype: "json",
+      colModel: [
+        {
+          label: "ID#",
+          name: "id",
+          width: 10
+        },{
+          label : "Start Date",
+          name: 'start_date',
+          width: 80,
+          editable: true
+        },{
+          label : "End Date",
+          name: 'end_date',
+          width: 80,
+          editable: true
+        },{
+          label : "Work day",
+          name: 'work_day',
+          width: 80,
+          editable: true
+        }
+      ],
+      sortname: 'ID#',
+      loadonce : true,
+      viewrecords: true,
+      onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+      width: 780,
+      height: 200,
+      rowNum: 10,
+      pager: "#jqGridPager",
+      gridview: true
+    });
+
+
+    var lastSelection;
+
+    function editRow(id) {
+      if (id && id !== lastSelection) {
+        var grid = $("#jqGrid");
+        grid.jqGrid('restoreRow', lastSelection);
+        grid.jqGrid('editRow',id, {keys: true} );
+        lastSelection = id;
+      }
+    }
+  });
+
+
+  function startEdit() {
+    var grid = $("#jqGrid");
+    var ids = grid.jqGrid('getDataIDs');
+
+    for (var i = 0; i < ids.length; i++) {
+      grid.jqGrid('editRow',ids[i]);
+    }
+  };
+  function saveRows() {
+    var grid = $("#jqGrid");
+    var ids = grid.jqGrid('getDataIDs');
+
+    for (var i = 0; i < ids.length; i++) {
+      grid.jqGrid('saveRow', ids[i]);
+    }
+  }
+
+</script>
+
 <table>
   <thead>
     <tr>

@@ -54,4 +54,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'autoprefixer-rails'
 
+gem 'jquery-ui-rails'
+
+gem 'jqgrid-jquery-rails', '~> 4.6', '>= 4.6.1'
+
 ruby "2.3.0"

@@ -40,13 +40,13 @@ CapitalizableGroup.create(capitalizable_rate: 25, description: '25%')
 CapitalizableGroup.create(capitalizable_rate: 0, description: '0%')
 
 # Team initialize
+Team.create(name: 'DELIVERY ENGINEERING', status: true)
+Team.create(name: 'Paid Acquisition', status: true)
+Team.create(name: 'SEARCH', status: true)
 Team.create(name: 'Physical Product & Supply Chain', status: true)
 Team.create(name: 'NEW MARKETS', status: true)
 Team.create(name: 'UX - SHOP', status: true)
 Team.create(name: 'ENGAGE', status: true)
-Team.create(name: 'SEARCH', status: true)
-Team.create(name: 'Paid Acquisition', status: true)
-Team.create(name: 'DELIVERY ENGINEERING', status: true)
 Team.create(name: 'MOBILE', status: true)
 Team.create(name: 'ARTIST SERVICES', status: true)
 
@@ -61,37 +61,37 @@ Team.create(name: 'ARTIST SERVICES', status: true)
       t.integer :team_id
 =end
 # Project of Team 1
-Project.create(team_id: 1, name: 'Gallery Board', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
-Project.create(team_id: 1, name: 'Tapestry', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
-Project.create(team_id: 1, name: 'Acrylic Prism Block', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
-Project.create(team_id: 1, name: 'Nigel - Product Platform', status: 1, is_capitalizable: true, weight: 15, release_date: nil, description: 'Development of a platform that can efficiently scale to support dramatic increase of physical products')
+Project.create(team_id: 4, name: 'Gallery Board', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
+Project.create(team_id: 4, name: 'Tapestry', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
+Project.create(team_id: 4, name: 'Acrylic Prism Block', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
+Project.create(team_id: 4, name: 'Nigel - Product Platform', status: 1, is_capitalizable: true, weight: 15, release_date: nil, description: 'Development of a platform that can efficiently scale to support dramatic increase of physical products')
 
 # Project of Team 2
-Project.create(team_id: 2, name: 'Spanish website content translation', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Preparing the content (including legals and translations of existing content) for launching the site in Spanish')
-Project.create(team_id: 2, name: 'Globalized process tooling', status: 1, is_capitalizable: true, weight: 90, release_date: nil, description: 'Now that RB.com has been internationalised (German, French and Spanish) we need to build tools for the engineering team to improve the time it takes & reduce the effort of gettting new features translated into the non-English languages and deployed to the production environment.')
+Project.create(team_id: 5, name: 'Spanish website content translation', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Preparing the content (including legals and translations of existing content) for launching the site in Spanish')
+Project.create(team_id: 5, name: 'Globalized process tooling', status: 1, is_capitalizable: true, weight: 90, release_date: nil, description: 'Now that RB.com has been internationalised (German, French and Spanish) we need to build tools for the engineering team to improve the time it takes & reduce the effort of gettting new features translated into the non-English languages and deployed to the production environment.')
 
 # Project of Team 3
-Project.create(team_id: 3, name: 'Checkout - Conversion', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: 'Improving the conversion rate of users who are adding to cart through to purchase, by simplifying the process and reducing unnecessary steps')
-Project.create(team_id: 3, name: 'Stripe Payment Gateway', status: 1, is_capitalizable: true, weight: 70, release_date: nil, description: 'Introducing the ability to pay using the third party Stripe payment gateway')
+Project.create(team_id: 6, name: 'Checkout - Conversion', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: 'Improving the conversion rate of users who are adding to cart through to purchase, by simplifying the process and reducing unnecessary steps')
+Project.create(team_id: 6, name: 'Stripe Payment Gateway', status: 1, is_capitalizable: true, weight: 70, release_date: nil, description: 'Introducing the ability to pay using the third party Stripe payment gateway')
 
 # Project of Team 4
-Project.create(team_id: 4, name: 'Homepage - Hero Banner', status: 1, is_capitalizable: true, weight: 60, release_date: nil, description: 'Refresh the home page by adding a new hero banner and moving the campaign banner into the feed')
-Project.create(team_id: 4, name: 'Icarus - Improve Product Support', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Support more products in Icarus to allow Marketing to send out more targeted emails')
-Project.create(team_id: 4, name: 'Homepage and Discover Experience - Cleanup', status: 1, is_capitalizable: true, weight: 30, release_date: nil, description: 'Clean up of a few loose ends in /discover and the homepage, including Translations and Content')
+Project.create(team_id: 7, name: 'Homepage - Hero Banner', status: 1, is_capitalizable: true, weight: 60, release_date: nil, description: 'Refresh the home page by adding a new hero banner and moving the campaign banner into the feed')
+Project.create(team_id: 7, name: 'Icarus - Improve Product Support', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Support more products in Icarus to allow Marketing to send out more targeted emails')
+Project.create(team_id: 7, name: 'Homepage and Discover Experience - Cleanup', status: 1, is_capitalizable: true, weight: 30, release_date: nil, description: 'Clean up of a few loose ends in /discover and the homepage, including Translations and Content')
 
 # Project of Team 5
-Project.create(team_id: 5, name: 'Query Independent Score (used to be dependant)', status: 1, is_capitalizable: true, weight: 60, release_date: nil, description: 'Rank search results based on user click behaviour, promoting results with a higher probability of conversion')
-Project.create(team_id: 5, name: 'Search UX Discovery', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: 'Discover usability issues with search on Redbubble, and validate potential solutions. ')
-Project.create(team_id: 5, name: 'Artist Ranking feature for search ranking', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: '')
+Project.create(team_id: 3, name: 'Query Independent Score (used to be dependant)', status: 1, is_capitalizable: true, weight: 60, release_date: nil, description: 'Rank search results based on user click behaviour, promoting results with a higher probability of conversion')
+Project.create(team_id: 3, name: 'Search UX Discovery', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: 'Discover usability issues with search on Redbubble, and validate potential solutions. ')
+Project.create(team_id: 3, name: 'Artist Ranking feature for search ranking', status: 1, is_capitalizable: true, weight: 20, release_date: nil, description: '')
 
 # Project of Team 6
-Project.create(team_id: 6, name: 'Shopping feed - Popular Products', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'Populate the Shopping Feed with products that have a high probability of sales to improve revenue and CTR from Google Shopping and related channels')
-Project.create(team_id: 6, name: 'Search Remarketing Emails', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'Send remarketing emails to users based on recent search activity on site to increase GTV from email channel')
+Project.create(team_id: 2, name: 'Shopping feed - Popular Products', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'Populate the Shopping Feed with products that have a high probability of sales to improve revenue and CTR from Google Shopping and related channels')
+Project.create(team_id: 2, name: 'Search Remarketing Emails', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'Send remarketing emails to users based on recent search activity on site to increase GTV from email channel')
 
 # Project of Team 7
-Project.create(team_id: 7, name: 'Resilient web application platform', status: 1, is_capitalizable: true, weight: 70, release_date: nil, description: 'Building tooling to manage resilient web applications')
-Project.create(team_id: 7, name: 'Solr in AWS', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Building scalable and resilient search infrastructure')
-Project.create(team_id: 7, name: 'Continuous Delivery', status: 1, is_capitalizable: true, weight: 5, release_date: nil, description: 'Enable automatic deployments of code')
+Project.create(team_id: 1, name: 'Resilient web application platform', status: 1, is_capitalizable: true, weight: 70, release_date: nil, description: 'Building tooling to manage resilient web applications')
+Project.create(team_id: 1, name: 'Solr in AWS', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'Building scalable and resilient search infrastructure')
+Project.create(team_id: 1, name: 'Continuous Delivery', status: 1, is_capitalizable: true, weight: 5, release_date: nil, description: 'Enable automatic deployments of code')
 
 # Project of Team 8
 Project.create(team_id: 8, name: 'Feed filtering ', status: 1, is_capitalizable: true, weight: 40, release_date: nil, description: 'Update prototype with discovered feed filtering pattern - allowing user to switch between topic based content, discovery on feed/filtering')
@@ -306,34 +306,35 @@ Employee.create(name: 'Albus Dumbledore', title: '', status: true, employment_ty
 TeamMember.create(team_id: 7, employee_id: 60, dedication_weight: 100)
 #emplyee 61
 Employee.create(name: 'Alastor Moody', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 1, employee_id: 61, dedication_weight: 20)
+
 TeamMember.create(team_id: 2, employee_id: 61, dedication_weight: 10)
-TeamMember.create(team_id: 3, employee_id: 61, dedication_weight: 10)
-TeamMember.create(team_id: 4, employee_id: 61, dedication_weight: 15)
-TeamMember.create(team_id: 5, employee_id: 61, dedication_weight: 15)
+TeamMember.create(team_id: 3, employee_id: 61, dedication_weight: 15)
+TeamMember.create(team_id: 4, employee_id: 61, dedication_weight: 20)
+TeamMember.create(team_id: 5, employee_id: 61, dedication_weight: 10)
 TeamMember.create(team_id: 6, employee_id: 61, dedication_weight: 10)
+TeamMember.create(team_id: 7, employee_id: 61, dedication_weight: 15)
 TeamMember.create(team_id: 8, employee_id: 61, dedication_weight: 15)
 TeamMember.create(team_id: 9, employee_id: 61, dedication_weight: 5)
 #emplyee 62
 Employee.create(name: 'Fleur Delacour', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 1, employee_id: 62, dedication_weight: 20)
 TeamMember.create(team_id: 2, employee_id: 62, dedication_weight: 10)
-TeamMember.create(team_id: 3, employee_id: 62, dedication_weight: 10)
-TeamMember.create(team_id: 4, employee_id: 62, dedication_weight: 15)
-TeamMember.create(team_id: 5, employee_id: 62, dedication_weight: 15)
+TeamMember.create(team_id: 3, employee_id: 62, dedication_weight: 15)
+TeamMember.create(team_id: 4, employee_id: 62, dedication_weight: 20)
+TeamMember.create(team_id: 5, employee_id: 62, dedication_weight: 10)
 TeamMember.create(team_id: 6, employee_id: 62, dedication_weight: 10)
+TeamMember.create(team_id: 7, employee_id: 62, dedication_weight: 15)
 TeamMember.create(team_id: 8, employee_id: 62, dedication_weight: 15)
 TeamMember.create(team_id: 9, employee_id: 62, dedication_weight: 5)
 #emplyee 63
 Employee.create(name: 'Gabrielle Delacour', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 3, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 1, employee_id: 62, dedication_weight: 20)
-TeamMember.create(team_id: 2, employee_id: 62, dedication_weight: 10)
-TeamMember.create(team_id: 3, employee_id: 62, dedication_weight: 10)
-TeamMember.create(team_id: 4, employee_id: 62, dedication_weight: 15)
-TeamMember.create(team_id: 5, employee_id: 62, dedication_weight: 15)
-TeamMember.create(team_id: 6, employee_id: 62, dedication_weight: 10)
-TeamMember.create(team_id: 7, employee_id: 62, dedication_weight: 15)
-TeamMember.create(team_id: 9, employee_id: 62, dedication_weight: 5)
+TeamMember.create(team_id: 1, employee_id: 63, dedication_weight: 15)
+TeamMember.create(team_id: 2, employee_id: 63, dedication_weight: 10)
+TeamMember.create(team_id: 3, employee_id: 63, dedication_weight: 15)
+TeamMember.create(team_id: 4, employee_id: 63, dedication_weight: 20)
+TeamMember.create(team_id: 5, employee_id: 63, dedication_weight: 10)
+TeamMember.create(team_id: 6, employee_id: 63, dedication_weight: 10)
+TeamMember.create(team_id: 7, employee_id: 63, dedication_weight: 15)
+TeamMember.create(team_id: 9, employee_id: 63, dedication_weight: 5)
 #emplyee 64
 Employee.create(name: 'Hermione Granger', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 4, commencement_date: nil, termination_date: nil)
 #emplyee 65
