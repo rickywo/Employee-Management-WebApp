@@ -58,8 +58,8 @@
       viewrecords: true,
       onSelectRow: startEdit, // the javascript function to call on row click. will ues to to put the row in edit mode
       //width: 100,
-      height: 200,
-      rowNum: 10,
+      height: 440,
+      rowNum: 20,
       pager: "#jqGridPager",
       gridview: true
     });
@@ -114,47 +114,6 @@
   }
 
 </script>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Team</th>
-      <th>Project Name</th>
-      <th>Employment type</th>
-      <th>Hourly rate</th>
-      <th>Location</th>
-      <th>Capitalizable group</th>
-      <th>Commencement date</th>
-      <th>Termination date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @employees.each do |employee| %>
-      <% employee.team_members.each do |team_member| %>
-          <% team_member.team.projects.each do |project| %>
-              <% result = calculate_capitalized_hour @iteration.find(7).work_day, employee.capitalizable_group.capitalizable_rate, 100, team_member.dedication_weight, project.weight %>
-            <tr>
-              <td><%= employee.name %></td>
-              <td><%= project.team.name %></td>
-              <td><%= project.name %></td>
-              <td><%= employee.employment_type %></td>
-              <td><%= employee.hourly_rate %></td>
-              <td><%= employee.location %></td>
-              <td><%= employee.capitalizable_group.description %></td>
-              <td><%= team_member.dedication_weight %></td>
-              <td><%= result.to_f %></td>
-              <td><%= link_to 'Show', employee %></td>
-              <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-              <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
