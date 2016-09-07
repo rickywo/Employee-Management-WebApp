@@ -4,7 +4,13 @@ class CapitalizableGroupsController < ApplicationController
   # GET /capitalizable_groups
   # GET /capitalizable_groups.json
   def index
-    @capitalizable_groups = CapitalizableGroup.all
+    @columns = ['id', 'capitalizable_rate', 'description']
+    @capitalizable_groups = CapitalizableGroup.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@capitalizable_groups, @columns)
+    end
   end
 
   # GET /capitalizable_groups/1
@@ -24,40 +30,32 @@ class CapitalizableGroupsController < ApplicationController
   # POST /capitalizable_groups
   # POST /capitalizable_groups.json
   def create
-    @capitalizable_group = CapitalizableGroup.new(capitalizable_group_params)
+    @capitalizable_group = CapitalizableGroup.create({:capitalizable_rate => params[:capitalizable_rate], :description => params[:description]})
 
-    respond_to do |format|
-      if @capitalizable_group.save
-        format.html { redirect_to @capitalizable_group, notice: 'Capitalizable group was successfully created.' }
-        format.json { render :show, status: :created, location: @capitalizable_group }
-      else
-        format.html { render :new }
-        format.json { render json: @capitalizable_group.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @capitalizable_group
     end
   end
 
   # PATCH/PUT /capitalizable_groups/1
   # PATCH/PUT /capitalizable_groups/1.json
   def update
-    respond_to do |format|
-      if @capitalizable_group.update(capitalizable_group_params)
-        format.html { redirect_to @capitalizable_group, notice: 'Capitalizable group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @capitalizable_group }
-      else
-        format.html { render :edit }
-        format.json { render json: @capitalizable_group.errors, status: :unprocessable_entity }
-      end
+    @capitalizable_group = CapitalizableGroup.find_by_id(params[:id])
+    @capitalizable_group.update_attributes({:capitalizable_rate => params[:capitalizable_rate], :description => params[:description]})
+
+    if request.xhr?
+      render :json => @capitalizable_group
     end
   end
 
   # DELETE /capitalizable_groups/1
   # DELETE /capitalizable_groups/1.json
   def destroy
+    @capitalizable_group = CapitalizableGroup.find_by_id(params[:id])
     @capitalizable_group.destroy
-    respond_to do |format|
-      format.html { redirect_to capitalizable_groups_url, notice: 'Capitalizable group was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @capitalizable_group
     end
   end
 

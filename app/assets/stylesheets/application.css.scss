@@ -17,4 +17,6 @@ provides jqgrid jquery plugin from gem 'jqgrid-jquery-rails':
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+
 @import "bootstrap";

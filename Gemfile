@@ -58,4 +58,8 @@ gem 'jquery-ui-rails'
 
 gem 'jqgrid-jquery-rails', '~> 4.6', '>= 4.6.1'
 
+gem 'jqgrid_for_rails'
+
+gem 'will_paginate', '~> 3.1.0'
+
 ruby "2.3.0"

@@ -2,12 +2,9 @@
 
 <h1>Teams</h1>
 
-<br /><br />
+<br/><br/>
 
-<input type="button" value="Edit in Batch Mode" onclick="startEdit()" />
-<input type="button" value="Save All Rows" onclick="saveRows()" />
-
-<br /><br />
+<br/><br/>
 
 <table id="jqGrid"></table>
 <div id="jqGridPager"></div>
@@ -17,93 +14,58 @@
   $(document).ready(function () {
     $("#jqGrid").jqGrid({
       url: "/teams",
-      editurl: ' /teams/update',
       datatype: "json",
+      mtype: 'GET',
+      colNames: ['ID#', 'Initiative', 'status'],
       colModel: [
         {
-          label: "ID#",
           name: "id",
-          width: 10
+          index: "id",
+          width: 100
         },
         {
-          label: "Name",
           name: 'name',
-          width: 100,
+          index: "name",
+          width: 300,
           editable: true // must set editable to true if you want to make the field editable
         },
         {
-          label: "Status",
           name: 'status',
-          width: 30,
+          index: "status",
+          width: 100,
           editable: true
         }
       ],
-      sortname: 'ID#',
-      loadonce : true,
-      viewrecords: true,
-      onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
-      width: 780,
-      height: 200,
-      rowNum: 10,
       pager: "#jqGridPager",
-      gridview: true
+      rowNum: 5,
+      rowList : [10, 20, 30],
+      sortname : 'id',
+      viewrecords: true,
+
+      //onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+
+    }).jqGrid("navGrid", "#jqGridPager", {
+      edit: true,
+      add: true,
+      del: true
+    }, {url: "/teams/update"}, {url: "/teams/create"}, {url: "teams/destroy/"}, {
+      closeAfterEdit: true,
+      closeOnEscape: true
     });
 
-
+    /*
     var lastSelection;
 
     function editRow(id) {
       if (id && id !== lastSelection) {
         var grid = $("#jqGrid");
         grid.jqGrid('restoreRow', lastSelection);
-        grid.jqGrid('editRow',id, {keys: true} );
+        grid.jqGrid('editRow', id, {keys: true});
         lastSelection = id;
       }
     }
+    */
   });
-
-
-  function startEdit() {
-    var grid = $("#jqGrid");
-    var ids = grid.jqGrid('getDataIDs');
-
-    for (var i = 0; i < ids.length; i++) {
-      grid.jqGrid('editRow',ids[i]);
-    }
-  };
-  function saveRows() {
-    var grid = $("#jqGrid");
-    var ids = grid.jqGrid('getDataIDs');
-
-    for (var i = 0; i < ids.length; i++) {
-      grid.jqGrid('saveRow', ids[i]);
-    }
-  }
 
 </script>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.status %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Team', new_team_path %>

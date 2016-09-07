@@ -2,30 +2,71 @@
 
 <h1>Team Members</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Team</th>
-      <th>Employee</th>
-      <th>Dedication weight</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table id="jqGrid"></table>
+<div id="jqGridPager"></div>
 
-  <tbody>
-    <% @team_members.each do |team_member| %>
-      <tr>
-        <td><%= team_member.team_id %></td>
-        <td><%= team_member.employee_id %></td>
-        <td><%= team_member.dedication_weight %></td>
-        <td><%= link_to 'Show', team_member %></td>
-        <td><%= link_to 'Edit', edit_team_member_path(team_member) %></td>
-        <td><%= link_to 'Destroy', team_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<script type="text/javascript">
 
-<br>
+  $(document).ready(function () {
+    $("#jqGrid").jqGrid({
+      url: "/team_members",
+      datatype: "json",
+      mtype: 'GET',
+      colNames: ['ID#', 'Team', 'Employee', 'Dedication Weight'],
+      colModel: [
+        {
+          name: "id",
+          index: "id",
+          width: 100
+        },
+        {
+          name: 'team_id',
+          index: "team_id",
+          width: 300,
+          editable: true // must set editable to true if you want to make the field editable
+        },
+        {
+          name: 'employee_id',
+          index: "employee_id",
+          width: 300,
+          editable: true
+        },
+        {
+          name: 'dedication_weight',
+          index: "dedication_weight",
+          width: 100,
+          editable: true
+        }
+      ],
+      pager: "#jqGridPager",
+      rowNum: 5,
+      rowList : [10, 20, 30],
+      sortname : 'id',
+      viewrecords: true,
 
-<%= link_to 'New Team Member', new_team_member_path %>
+      //onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+
+    }).jqGrid("navGrid", "#jqGridPager", {
+      edit: true,
+      add: true,
+      del: true
+    }, {url: "/team_members/update"}, {url: "/team_members/create"}, {url: "team_members/destroy/"}, {
+      closeAfterEdit: true,
+      closeOnEscape: true
+    });
+
+    /*
+     var lastSelection;
+
+     function editRow(id) {
+     if (id && id !== lastSelection) {
+     var grid = $("#jqGrid");
+     grid.jqGrid('restoreRow', lastSelection);
+     grid.jqGrid('editRow', id, {keys: true});
+     lastSelection = id;
+     }
+     }
+     */
+  });
+
+</script>

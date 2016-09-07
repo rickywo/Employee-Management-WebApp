@@ -4,7 +4,17 @@ class TeamMembersController < ApplicationController
   # GET /team_members
   # GET /team_members.json
   def index
-    @team_members = TeamMember.all
+    #@teams = Team.order('id ASC').all
+    @columns = ['id', 'team_id', 'employee_id', 'dedication_weight']
+    @team_members = TeamMember.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@team_members, @columns)
+    end
+    # @teams = Team.order('id ASC').paginate(
+    #     :page     => params[:page],
+    #     :per_page => params[:rows])
   end
 
   # GET /team_members/1
@@ -24,40 +34,36 @@ class TeamMembersController < ApplicationController
   # POST /team_members
   # POST /team_members.json
   def create
-    @team_member = TeamMember.new(team_member_params)
+    @team_member = TeamMember.create({:team_id => params[:team_id],
+                                      :employee_id => params[:employee_id],
+                                      :dedication_weight => params[:dedication_weight]})
 
-    respond_to do |format|
-      if @team_member.save
-        format.html { redirect_to @team_member, notice: 'Team member was successfully created.' }
-        format.json { render :show, status: :created, location: @team_member }
-      else
-        format.html { render :new }
-        format.json { render json: @team_member.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @team_member
     end
   end
 
   # PATCH/PUT /team_members/1
   # PATCH/PUT /team_members/1.json
   def update
-    respond_to do |format|
-      if @team_member.update(team_member_params)
-        format.html { redirect_to @team_member, notice: 'Team member was successfully updated.' }
-        format.json { render :show, status: :ok, location: @team_member }
-      else
-        format.html { render :edit }
-        format.json { render json: @team_member.errors, status: :unprocessable_entity }
-      end
+    @team_member = TeamMember.find_by_id(params[:id])
+    @team_member.update_attributes({:team_id => params[:team_id],
+                             :employee_id => params[:employee_id],
+                             :dedication_weight => params[:dedication_weight]})
+
+    if request.xhr?
+      render :json => @team_member
     end
   end
 
   # DELETE /team_members/1
   # DELETE /team_members/1.json
   def destroy
+    @team_member = TeamMember.find_by_id(params[:id])
     @team_member.destroy
-    respond_to do |format|
-      format.html { redirect_to team_members_url, notice: 'Team member was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @team_member
     end
   end
 

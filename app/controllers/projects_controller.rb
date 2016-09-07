@@ -4,7 +4,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @columns = ['id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
+    @projects = Project.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@projects, @columns)
+    end
   end
 
   # GET /projects/1
@@ -24,40 +30,41 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.create({:name => params[:name],
+                               :status => params[:status],
+                               :is_capitalizable => params[:is_capitalizable],
+                               :weight => params[:weight],
+                               :release_date => params[:release_date],
+                               :description => params[:description]})
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @project
     end
   end
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    @project = Project.find_by_id(params[:id])
+    @project.update_attributes({:id => params[:id], :name => params[:name],
+                                :status => params[:status],
+                                :is_capitalizable => params[:is_capitalizable],
+                                :weight => params[:weight],
+                                :release_date => params[:release_date],
+                                :description => params[:description]})
+    if request.xhr?
+      render :json => @project
     end
   end
 
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @project = CapitalizableGroup.find_by_id(params[:id])
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @project
     end
   end
 

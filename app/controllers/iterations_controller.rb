@@ -4,7 +4,17 @@ class IterationsController < ApplicationController
   # GET /iterations
   # GET /iterations.json
   def index
-    @iterations = Iteration.all
+    #@teams = Team.order('id ASC').all
+    @columns = ['id', 'start_date', 'end_date', 'work_day']
+    @iterations = Iteration.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@iterations, @columns)
+    end
+    # @teams = Team.order('id ASC').paginate(
+    #     :page     => params[:page],
+    #     :per_page => params[:rows])
   end
 
   # GET /iterations/1
@@ -24,40 +34,36 @@ class IterationsController < ApplicationController
   # POST /iterations
   # POST /iterations.json
   def create
-    @iteration = Iteration.new(iteration_params)
+    @iteration = Iteration.create({:start_date => params[:start_date],
+                                   :end_date => params[:end_date],
+                                   :work_day => params[:work_day]})
 
-    respond_to do |format|
-      if @iteration.save
-        format.html { redirect_to @iteration, notice: 'Iteration was successfully created.' }
-        format.json { render :show, status: :created, location: @iteration }
-      else
-        format.html { render :new }
-        format.json { render json: @iteration.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @iteration
     end
   end
 
   # PATCH/PUT /iterations/1
   # PATCH/PUT /iterations/1.json
   def update
-    respond_to do |format|
-      if @iteration.update(iteration_params)
-        format.html { redirect_to @iteration, notice: 'Iteration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @iteration }
-      else
-        format.html { render :edit }
-        format.json { render json: @iteration.errors, status: :unprocessable_entity }
-      end
+    @iteration = Iteration.find_by_id(params[:id])
+    @iteration.update_attributes({:start_date => params[:start_date],
+                             :end_date => params[:end_date],
+                             :work_day => params[:work_day]})
+
+    if request.xhr?
+      render :json => @iteration
     end
   end
 
   # DELETE /iterations/1
   # DELETE /iterations/1.json
   def destroy
+    @iteration = Iteration.find_by_id(params[:id])
     @iteration.destroy
-    respond_to do |format|
-      format.html { redirect_to iterations_url, notice: 'Iteration was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @iteration
     end
   end
 

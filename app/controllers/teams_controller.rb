@@ -4,7 +4,17 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    #@teams = Team.order('id ASC').all
+    @columns = ['id', 'name', 'status']
+    @teams = Team.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@teams, @columns)
+    end
+    # @teams = Team.order('id ASC').paginate(
+    #     :page     => params[:page],
+    #     :per_page => params[:rows])
   end
 
   # GET /teams/1
@@ -24,40 +34,32 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
+    @team = Team.create({:name => params[:name], :status => params[:status]})
 
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @team
     end
   end
 
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
-        format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    @team = Team.find_by_id(params[:id])
+    @team.update_attributes({:id => params[:id], :name => params[:name], :status => params[:status]})
+
+    if request.xhr?
+      render :json => @team
     end
   end
 
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
+    @team = Team.find_by_id(params[:id])
     @team.destroy
-    respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @team
     end
   end
 

@@ -2,13 +2,6 @@
 
 <h1>Employees</h1>
 
-<br /><br />
-
-<input type="button" value="Edit in Batch Mode" onclick="startEdit()" />
-<input type="button" value="Save All Rows" onclick="saveRows()" />
-
-<br /><br />
-
 <table id="jqGrid"></table>
 <div id="jqGridPager"></div>
 
@@ -17,99 +10,97 @@
   $(document).ready(function () {
     $("#jqGrid").jqGrid({
       url: "/employees",
-      editurl: ' /employees/update',
       datatype: "json",
+      mtype: 'GET',
+      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Rate', 'Location', 'capitalizable_group_id','Start Date', 'End Date'],
       colModel: [
         {
-          label: "ID#",
           name: "id",
+          index: "id",
           width: 10
         },
         {
-          label: "Name",
           name: 'name',
+          index: "name",
           width: 100,
           editable: true // must set editable to true if you want to make the field editable
         },
         {
-          label: "Title",
           name: 'title',
+          index: "title",
           width: 30,
           editable: true
         },
         {
-          label : "Employee Type",
+          name: 'status',
+          index: "id",
+          width: 30,
+          editable: true
+        },
+        {
           name: 'employment_type',
+          index: "employment_type",
           width: 30,
           editable: true
         },
         {
-          label : "Hourly Rate",
           name: 'hourly_rate',
+          index: "hourly_rate",
           width: 20,
           editable: true
         },
         {
-          label : "Location",
           name: 'location',
+          index: "location",
           width: 20,
           editable: true
         },{
-          label : "Start Date",
-          name: 'commencement_date',
-          width: 80,
+          name: 'capitalizable_group_id',
+          index: "capitalizable_group_id",
+          width: 200,
           editable: true
         },{
-          label : "End Date",
+          name: 'commencement_date',
+          index: "commencement_date",
+          width: 200,
+          editable: true
+        },{
           name: 'termination_date',
-          width: 80,
+          index: "termination_date",
+          width: 200,
           editable: true
         }
       ],
-      sortname: 'ID#',
-      loadonce : true,
-      viewrecords: true,
-      onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
-      width: 780,
-      height: 200,
-      rowNum: 10,
       pager: "#jqGridPager",
-      gridview: true
+      rowNum: 5,
+      rowList : [10, 20, 30],
+      sortname : 'id',
+      viewrecords: true,
+
+      //onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+
+    }).jqGrid("navGrid", "#jqGridPager", {
+      edit: true,
+      add: true,
+      del: true
+    }, {url: "/employees/update"}, {url: "/employees/create"}, {url: "employees/destroy/"}, {
+      closeAfterEdit: true,
+      closeOnEscape: true
     });
 
+    /*
+     var lastSelection;
 
-    var lastSelection;
-
-    function editRow(id) {
-      if (id && id !== lastSelection) {
-        var grid = $("#jqGrid");
-        grid.jqGrid('restoreRow', lastSelection);
-        grid.jqGrid('editRow',id, {keys: true} );
-        lastSelection = id;
-      }
-    }
+     function editRow(id) {
+     if (id && id !== lastSelection) {
+     var grid = $("#jqGrid");
+     grid.jqGrid('restoreRow', lastSelection);
+     grid.jqGrid('editRow', id, {keys: true});
+     lastSelection = id;
+     }
+     }
+     */
   });
-
-
-  function startEdit() {
-    var grid = $("#jqGrid");
-    var ids = grid.jqGrid('getDataIDs');
-
-    for (var i = 0; i < ids.length; i++) {
-      grid.jqGrid('editRow',ids[i]);
-    }
-  };
-  function saveRows() {
-    var grid = $("#jqGrid");
-    var ids = grid.jqGrid('getDataIDs');
-
-    for (var i = 0; i < ids.length; i++) {
-      grid.jqGrid('saveRow', ids[i]);
-    }
-  }
 
 </script>
 
-<br>
-
-<%= link_to 'New Employee', new_employee_path %>

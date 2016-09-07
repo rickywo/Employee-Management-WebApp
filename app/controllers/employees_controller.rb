@@ -4,7 +4,17 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    #@teams = Team.order('id ASC').all
+    @columns = ['id', 'name', 'title', 'status', 'employment_type', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
+    @employees = Employee.order('id ASC').paginate(
+        :page     => params[:page],
+        :per_page => params[:rows])
+    if request.xhr?
+      render :json => json_for_jqgrid(@employees, @columns)
+    end
+    # @teams = Team.order('id ASC').paginate(
+    #     :page     => params[:page],
+    #     :per_page => params[:rows])
   end
 
   # GET /employees/1
@@ -24,40 +34,47 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    @employee = Employee.create({:name => params[:name],
+                                 :title => params[:title],
+                                 :status => params[:status],
+                                 :employment_type => params[:employment_type],
+                                 :hourly_rate => params[:hourly_rate],
+                                 :location => params[:location],
+                                 :capitalizable_group_id => params[:capitalizable_group_id],
+                                 :commencement_date => params[:commencement_date],
+                                 :termination_date => params[:termination_date]})
 
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    if request.xhr?
+      render :json => @employee
     end
   end
 
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
-    respond_to do |format|
-      if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
-        format.json { render :show, status: :ok, location: @employee }
-      else
-        format.html { render :edit }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    @employee = Employee.find_by_id(params[:id])
+    @employee.update_attributes({:id => params[:id],
+                                 :name => params[:name],
+                                 :title => params[:title],
+                                 :status => params[:status],
+                                 :employment_type => params[:employment_type],
+                                 :hourly_rate => params[:hourly_rate],
+                                 :location => params[:location],
+                                 :commencement_date => params[:commencement_date],
+                                 :termination_date => params[:termination_date]})
+    if request.xhr?
+      render :json => @employee
     end
   end
 
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    @employee = Employee.find_by_id(params[:id])
     @employee.destroy
-    respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if request.xhr?
+      render :json => @employee
     end
   end
 
