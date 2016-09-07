@@ -60,6 +60,8 @@ gem 'jqgrid-jquery-rails', '~> 4.6', '>= 4.6.1'
 
 gem 'jqgrid_for_rails'
 
+gem 'omniauth-google-oauth2', '~> 0.2.1'
+
 gem 'will_paginate', '~> 3.1.0'
 
 ruby "2.3.0"

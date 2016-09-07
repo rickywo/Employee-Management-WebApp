@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'home/show'
+
   resources :employees
   resources :team_members
   resources :iterations
   resources :projects
   resources :teams
   resources :capitalizable_groups
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'capitalizable_groups#index'
+  root to: 'home#show'
   get '/cap_hour_calculation', to: 'cap_hour_calculation#index'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
   post 'capitalizable_groups/update/' => 'capitalizable_groups#update'
   post 'capitalizable_groups/create/' => 'capitalizable_groups#create'
   post 'capitalizable_groups/destroy/' => 'capitalizable_groups#destroy'
