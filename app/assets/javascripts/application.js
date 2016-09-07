@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 // provides jqgrid jquery plugin from gem 'jqgrid-jquery-rails':
 //= require jqgrid-jquery-rails
 //= require turbolinks
-//= require_tree .
+//= require_tr
