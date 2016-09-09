@@ -8,31 +8,18 @@
 
 # Iterations initialization
 
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 7, 11, 0, 0, 0), end_date: DateTime.new(2016, 7, 15, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 7, 18, 0, 0, 0), end_date: DateTime.new(2016, 7, 22, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 7, 25, 0, 0, 0), end_date: DateTime.new(2016, 7, 29, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 8, 1, 0, 0, 0), end_date: DateTime.new(2016, 8, 5, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 8, 15, 0, 0, 0), end_date: DateTime.new(2016, 8, 12, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 8, 22, 0, 0, 0), end_date: DateTime.new(2016, 8, 19, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 8, 29, 0, 0, 0), end_date: DateTime.new(2016, 8, 26, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 9, 5, 0, 0, 0), end_date: DateTime.new(2016, 9, 2, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 9, 12, 0, 0, 0), end_date: DateTime.new(2016, 9, 16, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 9, 19, 0, 0, 0), end_date: DateTime.new(2016, 9, 23, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 9, 26, 0, 0, 0), end_date: DateTime.new(2016, 9, 30, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 10, 3, 0, 0, 0), end_date: DateTime.new(2016, 10, 7, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 10, 10, 0, 0, 0), end_date: DateTime.new(2016, 10, 14, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 10, 17, 0, 0, 0), end_date: DateTime.new(2016, 10, 21, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 10, 24, 0, 0, 0), end_date: DateTime.new(2016, 10, 28, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 10, 31, 0, 0, 0), end_date: DateTime.new(2016, 11, 4, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 11, 7, 0, 0, 0), end_date: DateTime.new(2016, 11, 11, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 11, 14, 0, 0, 0), end_date: DateTime.new(2016, 11, 18, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 11, 21, 0, 0, 0), end_date: DateTime.new(2016, 11, 25, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 11, 28, 0, 0, 0), end_date: DateTime.new(2016, 12, 2, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 12, 5, 0, 0, 0), end_date: DateTime.new(2016, 12, 9, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 12, 12, 0, 0, 0), end_date: DateTime.new(2016, 12, 16, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 12, 19, 0, 0, 0), end_date: DateTime.new(2016, 12, 23, 0, 0, 0))
-Iteration.create(work_day: 5, start_date: DateTime.new(2016, 12, 26, 0, 0, 0), end_date: DateTime.new(2016, 12, 30, 0, 0, 0))
+#
 
+#puts Date.today.beginning_of_year.cweek
+#puts Date.today.end_of_year.cweek
+#for week in [Date.today.beginning_of_year.cweek..Date.today.end_of_year.cweek]
+(1..Date.today.end_of_year.cweek).each do |week|
+  monday_of_week = Date.commercial(2016, week)
+  puts week
+  sunday = monday_of_week + 6
+  Iteration.create(work_day: 5, start_date: monday_of_week, end_date: sunday)
+end
+puts 'End'
 # Capitalizable_group initialize
 CapitalizableGroup.create(capitalizable_rate: 100, description: '100%')
 CapitalizableGroup.create(capitalizable_rate: 50, description: '50%')
@@ -200,7 +187,7 @@ TeamMember.create(team_id: 3, employee_id: 26, dedication_weight: 100)
 Employee.create(name: 'Godric Gryffindor', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 4, employee_id: 27, dedication_weight: 100)
 #emplyee 28
-Employee.create(name: 'Cho Chang', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Cho Chang', title: '', status: true, employment_type: 1, attendance_rate: 60,hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 6, employee_id: 28, dedication_weight: 100)
 #emplyee 29
 Employee.create(name: 'Marge Dursley', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
@@ -251,7 +238,7 @@ TeamMember.create(team_id: 4, employee_id: 43, dedication_weight: 100)
 Employee.create(name: 'Millicent Bulstrode', title: '', status: true, employment_type: 2, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 5, employee_id: 44, dedication_weight: 100)
 #emplyee 45
-Employee.create(name: 'Marvolo Gaunt', title: '', status: true, employment_type: 2, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Marvolo Gaunt', title: '', status: true, employment_type: 2, attendance_rate: 80, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 4, employee_id: 45, dedication_weight: 100)
 #emplyee 46
 Employee.create(name: 'Oliver Wood', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
@@ -296,10 +283,10 @@ TeamMember.create(team_id: 7, employee_id: 56, dedication_weight: 100)
 Employee.create(name: 'Alice Longbottom', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 8, employee_id: 57, dedication_weight: 100)
 #emplyee 58
-Employee.create(name: 'Bellatrix Lestrange', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Bellatrix Lestrange', title: '', status: true, employment_type: 1, attendance_rate: 80, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 4, employee_id: 58, dedication_weight: 100)
 #emplyee 59
-Employee.create(name: 'Amos Diggory', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Amos Diggory', title: '', status: true, employment_type: 1, attendance_rate: 60, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 6, employee_id: 59, dedication_weight: 100)
 #emplyee 60
 Employee.create(name: 'Albus Dumbledore', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 2, commencement_date: nil, termination_date: nil)

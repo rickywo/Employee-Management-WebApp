@@ -3,3 +3,5 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+DateTime::DATE_FORMATS[:custom_datetime] = "%e-%b-%y"

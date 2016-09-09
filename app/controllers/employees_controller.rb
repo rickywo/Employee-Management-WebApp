@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     #@teams = Team.order('id ASC').all
-    @columns = ['id', 'name', 'title', 'status', 'employment_type', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
+    @columns = ['id', 'name', 'title', 'status', 'employment_type', 'attendance_rate', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
     @employees = Employee.order('id ASC').paginate(
         :page     => params[:page],
         :per_page => params[:rows])
@@ -38,6 +38,7 @@ class EmployeesController < ApplicationController
                                  :title => params[:title],
                                  :status => params[:status],
                                  :employment_type => params[:employment_type],
+                                 :attendance_rate => params[:attendance_rate],
                                  :hourly_rate => params[:hourly_rate],
                                  :location => params[:location],
                                  :capitalizable_group_id => params[:capitalizable_group_id],
@@ -58,6 +59,7 @@ class EmployeesController < ApplicationController
                                  :title => params[:title],
                                  :status => params[:status],
                                  :employment_type => params[:employment_type],
+                                 :attendance_rate => params[:attendance_rate],
                                  :hourly_rate => params[:hourly_rate],
                                  :location => params[:location],
                                  :commencement_date => params[:commencement_date],
@@ -86,6 +88,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :title, :status, :employment_type, :hourly_rate, :location, :capitalizable_group_id, :commencement_date, :termination_date)
+      params.require(:employee).permit(:name, :title, :status, :employment_type, :attendance_rate, :hourly_rate, :location, :capitalizable_group_id, :commencement_date, :termination_date)
     end
 end

@@ -12,7 +12,7 @@
       url: "/employees",
       datatype: "json",
       mtype: 'GET',
-      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Rate', 'Location', 'capitalizable_group_id','Start Date', 'End Date'],
+      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Attendance Rate', 'Rate', 'Location', 'capitalizable_group_id','Start Date', 'End Date'],
       colModel: [
         {
           name: "id",
@@ -40,6 +40,12 @@
         {
           name: 'employment_type',
           index: "employment_type",
+          width: 30,
+          editable: true
+        },
+        {
+          name: 'attendance_rate',
+          index: "attendance_rate",
           width: 30,
           editable: true
         },

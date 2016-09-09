@@ -27,15 +27,21 @@ module CapHourCalculationHelper
       employee.team_members.each do |team_member|
         team_member.team.projects.each do |project|
 
-          result = calculate_capitalized_hour @iteration.find(7).work_day, employee.capitalizable_group.capitalizable_rate, 100, team_member.dedication_weight, project.weight
+          result = calculate_capitalized_hour @this_iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_rate, team_member.dedication_weight, project.weight
           #p employee.name
           @result.append(Cap_result_row.new(employee.name,project.team.name,project.name,employee.employment_type,employee.hourly_rate,employee.location,employee.capitalizable_group.capitalizable_rate,team_member.dedication_weight,result.to_f))
           #p json
         end
       end
     end
-    return @result
+    @result
   end
+
+
+  def get_current_iteration
+    return Iteration.where("start_date < ? AND end_date > ?", Time.now, Time.now).take
+  end
+
 
   class Cap_result_row
     attr_accessor :employee_name, :team, :project, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_day

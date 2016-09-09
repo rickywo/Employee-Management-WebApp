@@ -1,3 +1,2 @@
 class CapitalizationResult < ApplicationRecord
-
 end

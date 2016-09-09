@@ -8,8 +8,6 @@ class AddForeignKeys < ActiveRecord::Migration[5.0]
     add_foreign_key :iteration_attendances, :employees
     add_foreign_key :iteration_attendances, :iterations
     add_foreign_key :capitalization_results, :iterations
-    add_foreign_key :capitalization_results, :employees
-    add_foreign_key :capitalization_results, :teams
     add_foreign_key :employees, :capitalizable_groups
   end
 end

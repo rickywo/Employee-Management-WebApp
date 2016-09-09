@@ -35,21 +35,22 @@ ActiveRecord::Schema.define(version: 20160907122807) do
     t.string   "title"
     t.boolean  "status"
     t.integer  "employment_type"
+    t.integer  "attendance_rate",        default: 100
     t.float    "hourly_rate"
     t.integer  "location"
     t.integer  "capitalizable_group_id"
     t.datetime "commencement_date"
     t.datetime "termination_date"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "iteration_attendances", force: :cascade do |t|
     t.integer  "iteration_id"
     t.integer  "employee_id"
-    t.integer  "attendance_rate"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "leave_days"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "iterations", force: :cascade do |t|
@@ -104,9 +105,7 @@ ActiveRecord::Schema.define(version: 20160907122807) do
     t.datetime "updated_at",       null: false
   end
 
-  add_foreign_key "capitalization_results", "employees"
   add_foreign_key "capitalization_results", "iterations"
-  add_foreign_key "capitalization_results", "teams"
   add_foreign_key "employees", "capitalizable_groups"
   add_foreign_key "iteration_attendances", "employees"
   add_foreign_key "iteration_attendances", "iterations"

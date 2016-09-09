@@ -2,12 +2,22 @@
 
 <h1>Cap_Hour_calculation</h1>
 
-<br /><br />
+<div class="col-md-12">
+  <button type="button" class="btn btn-success">Export to CSV</button>
+</div>
+<label>View with Leaves:</label>
 
-<input type="button" value="Edit in Batch Mode" onclick="startEdit()" />
-<input type="button" value="Save All Rows" onclick="saveRows()" />
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-outline-info">
+    <input type="radio" autocomplete="off"> Yes
+  </label>
+  <label class="btn btn-outline-info active">
+    <input type="radio" autocomplete="off"> No
+  </label>
+</div>
 
-<br /><br />
+<span class="tag tag-default"><%=@this_iteration.start_date.to_s %>123</span></h3>
+
 
 <table id="jqGrid"></table>
 <div id="jqGridPager"></div>
@@ -114,7 +124,3 @@
   }
 
 </script>
-
-<br>
-
-<%= link_to 'New Employee', new_employee_path %>
