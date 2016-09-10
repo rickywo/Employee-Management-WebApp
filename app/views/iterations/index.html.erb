@@ -22,12 +22,15 @@
         {
           name: 'start_date',
           index: "start_date",
+          formatter: 'date', formatoptions: {newformat: 'd-M-Y'}, datefmt: 'd-M-Y',
+
           width: 200,
           editable: true // must set editable to true if you want to make the field editable
         },
         {
           name: 'end_date',
           index: "end_date",
+          formatter: 'date', formatoptions: {newformat: 'd-M-Y'}, datefmt: 'd-M-Y',
           width: 200,
           editable: true
         },

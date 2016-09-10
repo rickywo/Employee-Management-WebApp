@@ -20,3 +20,7 @@ provides jqgrid jquery plugin from gem 'jqgrid-jquery-rails':
 @import "bootstrap-sprockets";
 
 @import "bootstrap";
+
+.mycenter > .ui-jqgrid { margin-left: auto; margin-right: auto; }
+
+.ui-jqgrid {font-size:0.8em}

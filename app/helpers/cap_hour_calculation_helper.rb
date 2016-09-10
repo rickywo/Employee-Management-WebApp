@@ -24,12 +24,36 @@ module CapHourCalculationHelper
   def get_result_rows
     @result = []
     @employees.each do |employee|
+      dca = []
+      for i in 0..4 do
+        dca.append(Date_container.new(@this_iteration.start_date + i.days))
+        p dca[i].date
+      end
       employee.team_members.each do |team_member|
         team_member.team.projects.each do |project|
 
           result = calculate_capitalized_hour @this_iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_rate, team_member.dedication_weight, project.weight
           #p employee.name
-          @result.append(Cap_result_row.new(employee.name,project.team.name,project.name,employee.employment_type,employee.hourly_rate,employee.location,employee.capitalizable_group.capitalizable_rate,team_member.dedication_weight,result.to_f))
+          (0..4).each { |i|
+            intake = dca[i].fill(result.to_f)
+            if intake != 0
+
+              result -= intake
+
+              row = Cap_result_row.new(employee.name,
+                                       project.team.name,
+                                       project.name,
+                                       dca[i].date,
+                                       employee.employment_type,
+                                       employee.hourly_rate,
+                                       employee.location,
+                                       employee.capitalizable_group.capitalizable_rate,
+                                       team_member.dedication_weight,
+                                       intake)
+              @result.append(row)
+            end
+          }
+
           #p json
         end
       end
@@ -44,11 +68,12 @@ module CapHourCalculationHelper
 
 
   class Cap_result_row
-    attr_accessor :employee_name, :team, :project, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_day
-    def initialize(name, t, p, type, rate, loc, cap_wt, dedi_wt, cap_day)
+    attr_accessor :employee_name, :team, :project, :date, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_day
+    def initialize(name, t, p, d, type, rate, loc, cap_wt, dedi_wt, cap_day)
       @employee_name = name
       @team = t
       @project = p
+      @date = d
       @employee_type = type
       @hourly_rate = rate
       @location = loc
@@ -58,4 +83,29 @@ module CapHourCalculationHelper
     end
   end
 
+  class Date_container
+    LIMIT = 1.0
+    attr_accessor :date, :cap
+    def initialize(date)
+      @date = date
+      @cap = 0
+    end
+    def is_full
+      if :cap == LIMIT
+        true
+      else
+        false
+      end
+    end
+    def fill(part)
+      if (@cap + part) >= LIMIT
+        intake = LIMIT - @cap
+        @cap = LIMIT
+      else
+        @cap += part
+        intake = part
+      end
+      intake
+    end
+  end
 end

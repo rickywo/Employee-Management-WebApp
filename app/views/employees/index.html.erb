@@ -7,86 +7,96 @@
 
 <script type="text/javascript">
 
+
   $(document).ready(function () {
+    var pageWidth = $("#jqGrid").parent().width();
     $("#jqGrid").jqGrid({
       url: "/employees",
+      editurl: '/employees/update',
       datatype: "json",
       mtype: 'GET',
-      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Attendance Rate', 'Rate', 'Location', 'capitalizable_group_id','Start Date', 'End Date'],
+      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Work Type', 'Rate ($)', 'Location', 'Group','Start Date', 'End Date'],
       colModel: [
         {
           name: "id",
           index: "id",
-          width: 10
+          width: (pageWidth*(5/100))
         },
         {
           name: 'name',
           index: "name",
-          width: 100,
+          width: (pageWidth*(15/100)),
           editable: true // must set editable to true if you want to make the field editable
         },
         {
           name: 'title',
           index: "title",
-          width: 30,
+          width: (pageWidth*(10/100)),
           editable: true
         },
         {
           name: 'status',
-          index: "id",
-          width: 30,
-          editable: true
+          index: "status",
+          width: (pageWidth*(5/100)),
+          align: "center",
+          editable: true, edittype:'select',editoptions: {value:'true:Active;false:Inactive'}, formatter:'select'
         },
         {
           name: 'employment_type',
           index: "employment_type",
-          width: 30,
-          editable: true
+          width: (pageWidth*(10/100)),
+          align: "center",
+          editable: true, edittype:'select',editoptions: {value:'1:Permanent;2:Contract'}, formatter:'select'
         },
         {
           name: 'attendance_rate',
           index: "attendance_rate",
-          width: 30,
-          editable: true
+          width: (pageWidth*(10/100)),
+          align: "center",
+          editable: true, edittype:'select',editoptions: {value:'60:60%;80:80%;100:100%'}, formatter:'select'
         },
         {
           name: 'hourly_rate',
           index: "hourly_rate",
-          width: 20,
+          align: "right",
+          width: (pageWidth*(5/100)),
           editable: true
         },
         {
           name: 'location',
           index: "location",
-          width: 20,
-          editable: true
+          align: "center",
+          width: (pageWidth*(5/100)), editable:true, edittype:'select',editoptions: {value:'1:AU;2:LA'}, formatter:'select'
         },{
           name: 'capitalizable_group_id',
           index: "capitalizable_group_id",
-          width: 200,
+          width: (pageWidth*(5/100)),
+          align: "center",
           editable: true
         },{
           name: 'commencement_date',
           index: "commencement_date",
-          width: 200,
+          width: (pageWidth*(15/100)),
+          align: "right",
           editable: true
         },{
           name: 'termination_date',
           index: "termination_date",
-          width: 200,
+          width: (pageWidth*(15/100)),
+          align: "right",
           editable: true
         }
       ],
       pager: "#jqGridPager",
-      rowNum: 5,
-      rowList : [10, 20, 30],
+      height: 445,
+      rowNum: 20,
       sortname : 'id',
       viewrecords: true,
 
-      //onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+      onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
 
     }).jqGrid("navGrid", "#jqGridPager", {
-      edit: true,
+      edit: false,
       add: true,
       del: true
     }, {url: "/employees/update"}, {url: "/employees/create"}, {url: "employees/destroy/"}, {
@@ -94,7 +104,7 @@
       closeOnEscape: true
     });
 
-    /*
+
      var lastSelection;
 
      function editRow(id) {
@@ -105,7 +115,7 @@
      lastSelection = id;
      }
      }
-     */
+
   });
 
 </script>

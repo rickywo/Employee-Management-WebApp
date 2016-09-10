@@ -34,20 +34,25 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.create({:name => params[:name],
-                                 :title => params[:title],
-                                 :status => params[:status],
-                                 :employment_type => params[:employment_type],
-                                 :attendance_rate => params[:attendance_rate],
-                                 :hourly_rate => params[:hourly_rate],
-                                 :location => params[:location],
-                                 :capitalizable_group_id => params[:capitalizable_group_id],
-                                 :commencement_date => params[:commencement_date],
-                                 :termination_date => params[:termination_date]})
-
-    if request.xhr?
-      render :json => @employee
+    if :opr == 'edit'
+      update
+    else
+      @employee = Employee.create({:name => params[:name],
+                                   :title => params[:title],
+                                   :status => params[:status],
+                                   :employment_type => params[:employment_type],
+                                   :attendance_rate => params[:attendance_rate],
+                                   :hourly_rate => params[:hourly_rate],
+                                   :location => params[:location],
+                                   :capitalizable_group_id => params[:capitalizable_group_id],
+                                   :commencement_date => params[:commencement_date],
+                                   :termination_date => params[:termination_date]})
+      if request.xhr?
+        render :json => @employee
+      end
     end
+
+
   end
 
   # PATCH/PUT /employees/1
