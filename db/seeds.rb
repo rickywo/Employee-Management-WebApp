@@ -6,26 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Iteration.delete_all
 # Iterations initialization
 
 #
 
-#puts Date.today.beginning_of_year.cweek
-#puts Date.today.end_of_year.cweek
-#for week in [Date.today.beginning_of_year.cweek..Date.today.end_of_year.cweek]
 (1..Date.today.end_of_year.cweek).each do |week|
   monday_of_week = Date.commercial(2016, week)
   puts week
-  sunday = monday_of_week + 6
-  Iteration.create(work_day: 5, start_date: monday_of_week, end_date: sunday)
+  next_monday = monday_of_week + 7
+  Iteration.create(work_day: 5, start_date: monday_of_week, end_date: next_monday)
 end
-puts 'End'
+
+CapitalizableGroup.delete_all
 # Capitalizable_group initialize
 CapitalizableGroup.create(capitalizable_rate: 100, description: '100%')
 CapitalizableGroup.create(capitalizable_rate: 50, description: '50%')
 CapitalizableGroup.create(capitalizable_rate: 25, description: '25%')
 CapitalizableGroup.create(capitalizable_rate: 0, description: '0%')
 
+Team.delete_all
 # Team initialize
 Team.create(name: 'DELIVERY ENGINEERING', status: true)
 Team.create(name: 'Paid Acquisition', status: true)
@@ -47,6 +47,7 @@ Team.create(name: 'ARTIST SERVICES', status: true)
       t.text :description
       t.integer :team_id
 =end
+Project.delete_all
 # Project of Team 1
 Project.create(team_id: 4, name: 'Gallery Board', status: 1, is_capitalizable: true, weight: 10, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
 Project.create(team_id: 4, name: 'Tapestry', status: 1, is_capitalizable: true, weight: 50, release_date: nil, description: 'New product for RB - this is a brand new product and a new printing process providing a unique case product to RB. Design and build the customer, artsits and fulfillment experience related to the new product.')
@@ -102,6 +103,8 @@ Project.create(team_id: 9, name: 'Artist Driven Audience Profile Pages', status:
       t.datetime :termination_date
 =end
 
+Employee.delete_all
+TeamMember.delete_all
 #emplyee 1
 #Employee.create(name: '', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 
