@@ -27,7 +27,6 @@ module CapHourCalculationHelper
       dca = []
       for i in 0..4 do
         dca.append(Date_container.new(@this_iteration.start_date + i.days))
-        p dca[i].date
       end
       employee.team_members.each do |team_member|
         team_member.team.projects.each do |project|
@@ -36,7 +35,7 @@ module CapHourCalculationHelper
           #p employee.name
           (0..4).each { |i|
             intake = dca[i].fill(result.to_f)
-            if intake != 0
+            if intake.round(2) != 0
 
               result -= intake
 
@@ -49,7 +48,7 @@ module CapHourCalculationHelper
                                        employee.location,
                                        employee.capitalizable_group.capitalizable_rate,
                                        team_member.dedication_weight,
-                                       intake)
+                                       trans_workday_to_hours(7.6, intake).round(2))
               @result.append(row)
             end
           }
@@ -61,15 +60,34 @@ module CapHourCalculationHelper
     @result
   end
 
-
-  def get_current_iteration
-    return Iteration.where("start_date < ? AND end_date > ?", Time.now, Time.now).take
+  def result_to_csv(column_names, header)
+    CSV.generate do |csv|
+      csv << header
+      @result.each do |row|
+        csv << [row.project.to_s,
+                row.employee_name.to_s,
+                row.date.strftime("%e-%b-%y"),
+                row.cap_hour.to_s,
+                row.project.to_s,
+                row.hourly_rate.to_s]
+      end
+    end
   end
 
 
+  def get_current_iteration
+    Iteration.where("start_date < ? AND end_date > ?", Time.now, Time.now).take
+  end
+
+  def trans_workday_to_hours(hr_per_day, workday)
+    (hr_per_day * workday).to_f
+  end
+
+
+  # noinspection RubyTooManyInstanceVariablesInspection
   class Cap_result_row
-    attr_accessor :employee_name, :team, :project, :date, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_day
-    def initialize(name, t, p, d, type, rate, loc, cap_wt, dedi_wt, cap_day)
+    attr_accessor :employee_name, :team, :project, :date, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_hour
+    def initialize(name, t, p, d, type, rate, loc, cap_wt, dedi_wt, cap_hour)
       @employee_name = name
       @team = t
       @project = p
@@ -79,7 +97,7 @@ module CapHourCalculationHelper
       @location = loc
       @cap_weight = cap_wt
       @dedication_weight = dedi_wt
-      @cap_day = cap_day
+      @cap_hour = cap_hour
     end
   end
 

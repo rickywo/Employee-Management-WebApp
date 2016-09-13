@@ -31,6 +31,6 @@ json.array! get_result_rows.each do |rows|
       json.employee_location rows.location
       json.capitalizable_group_description rows.cap_weight
       json.dedication_weight rows.dedication_weight
-      json.result rows.cap_day
+      json.result rows.cap_hour
       #p json
 end

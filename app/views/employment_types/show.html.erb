@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employment_type.name %>
+</p>
+
+<p>
+  <strong>Attendance rate:</strong>
+  <%= @employment_type.attendance_rate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @employment_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_employment_type_path(@employment_type) %> |
+<%= link_to 'Back', employment_types_path %>
