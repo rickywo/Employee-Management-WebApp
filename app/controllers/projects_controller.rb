@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @columns = ['id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
+    @columns = ['id', 'team_id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
     @projects = Project.order('id ASC').paginate(
         :page     => params[:page],
         :per_page => params[:rows])
@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.create({:name => params[:name],
+                               :team_id => params[:team_id],
                                :status => params[:status],
                                :is_capitalizable => params[:is_capitalizable],
                                :weight => params[:weight],
@@ -46,7 +47,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     @project = Project.find_by_id(params[:id])
-    @project.update_attributes({:id => params[:id], :name => params[:name],
+    @project.update_attributes({:id => params[:id],
+                                :name => params[:name],
+                                :team_id => params[:team_id],
                                 :status => params[:status],
                                 :is_capitalizable => params[:is_capitalizable],
                                 :weight => params[:weight],

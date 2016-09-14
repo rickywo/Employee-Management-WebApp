@@ -1,10 +1,10 @@
-<%= form_for(employment_type) do |f| %>
-  <% if employment_type.errors.any? %>
+<%= form_for(attendance_type) do |f| %>
+  <% if attendance_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employment_type.errors.count, "error") %> prohibited this employment_type from being saved:</h2>
+      <h2><%= pluralize(attendance_type.errors.count, "error") %> prohibited this attendance_type from being saved:</h2>
 
       <ul>
-      <% employment_type.errors.full_messages.each do |message| %>
+      <% attendance_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

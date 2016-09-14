@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attendance_type.name %>
+</p>
+
+<p>
+  <strong>Attendance rate:</strong>
+  <%= @attendance_type.attendance_rate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @attendance_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_type_path(@attendance_type) %> |
+<%= link_to 'Back', attendance_types_path %>

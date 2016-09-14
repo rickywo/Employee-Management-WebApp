@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907122807) do
+ActiveRecord::Schema.define(version: 20160913131829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendance_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "attendance_rate"
+    t.text     "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "capitalizable_groups", force: :cascade do |t|
     t.integer  "capitalizable_rate"
@@ -35,14 +43,15 @@ ActiveRecord::Schema.define(version: 20160907122807) do
     t.string   "title"
     t.boolean  "status"
     t.integer  "employment_type"
-    t.integer  "attendance_rate",        default: 100
     t.float    "hourly_rate"
     t.integer  "location"
     t.integer  "capitalizable_group_id"
     t.datetime "commencement_date"
     t.datetime "termination_date"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "attendance_type_id"
+    t.index ["attendance_type_id"], name: "index_employees_on_attendance_type_id", using: :btree
   end
 
   create_table "iteration_attendances", force: :cascade do |t|
@@ -106,6 +115,7 @@ ActiveRecord::Schema.define(version: 20160907122807) do
   end
 
   add_foreign_key "capitalization_results", "iterations"
+  add_foreign_key "employees", "attendance_types"
   add_foreign_key "employees", "capitalizable_groups"
   add_foreign_key "iteration_attendances", "employees"
   add_foreign_key "iteration_attendances", "iterations"
