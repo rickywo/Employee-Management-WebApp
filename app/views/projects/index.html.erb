@@ -16,6 +16,7 @@
     var pageWidth = 1280;
     $("#jqGrid").jqGrid({
       url: "/projects",
+      editurl: '/projects/update',
       datatype: "json",
       mtype: 'GET',
       colNames: ['ID#', 'Team', 'Name', 'Status', 'Capitalizable', 'Weight', 'Release Date', 'Description'],

@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   def index
     @columns = ['id', 'team_id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
     @projects = Project.order('id ASC').paginate(
-        :page     => params[:page],
+        :page => params[:page],
         :per_page => params[:rows])
     if request.xhr?
       render :json => json_for_jqgrid(@projects, @columns)
@@ -30,16 +30,20 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.create({:name => params[:name],
-                               :team_id => params[:team_id],
-                               :status => params[:status],
-                               :is_capitalizable => params[:is_capitalizable],
-                               :weight => params[:weight],
-                               :release_date => params[:release_date],
-                               :description => params[:description]})
+    if :opr == 'edit'
+      update
+    else
+      @project = Project.create({:name => params[:name],
+                                 :team_id => params[:team_id],
+                                 :status => params[:status],
+                                 :is_capitalizable => params[:is_capitalizable],
+                                 :weight => params[:weight],
+                                 :release_date => params[:release_date],
+                                 :description => params[:description]})
 
-    if request.xhr?
-      render :json => @project
+      if request.xhr?
+        render :json => @project
+      end
     end
   end
 
@@ -63,7 +67,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = CapitalizableGroup.find_by_id(params[:id])
+    @project = Project.find_by_id(params[:id])
     @project.destroy
 
     if request.xhr?
@@ -72,13 +76,13 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:name, :status, :is_capitalizable, :weight, :release_date, :description, :team_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:name, :status, :is_capitalizable, :weight, :release_date, :description, :team_id)
+  end
 end
