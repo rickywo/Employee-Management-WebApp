@@ -67,6 +67,7 @@ class EmployeesController < ApplicationController
                                  :attendance_type_id => params[:attendance_type_id],
                                  :hourly_rate => params[:hourly_rate],
                                  :location => params[:location],
+                                 :capitalizable_group_id => params[:capitalizable_group_id],
                                  :commencement_date => params[:commencement_date],
                                  :termination_date => params[:termination_date]})
     if request.xhr?

@@ -6,10 +6,20 @@
 <div id="jqGridPager"></div>
 
 <script type="text/javascript">
+  var cap_group_options = '';
+  <% CapitalizableGroup.all.each do |group| %>
+  cap_group_options += $("<div/>").html('<%= group.id%>:<%= group.description%>;').text();
+  <% end %>
+  cap_group_options = cap_group_options.substring(0, cap_group_options.length - 1);
 
+  var attendance_type_options = '';
+  <% AttendanceType.all.each do |type| %>
+  attendance_type_options += $("<div/>").html('<%= type.id%>:<%= type.name%>;').text();
+  <% end %>
+  attendance_type_options = attendance_type_options.substring(0, attendance_type_options.length - 1);
 
   $(document).ready(function () {
-    var pageWidth = $("#jqGrid").parent().width();
+    var pageWidth = 1280;
     $("#jqGrid").jqGrid({
       url: "/employees",
       editurl: '/employees/update',
@@ -53,7 +63,7 @@
           index: "attendance_type_id",
           width: (pageWidth*(10/100)),
           align: "center",
-          editable: true, edittype:'select',editoptions: {value:'3:60%;2:80%;1:100%'}, formatter:'select'
+          editable: true, edittype:'select',editoptions: {value:attendance_type_options}, formatter:'select'
         },
         {
           name: 'hourly_rate',
@@ -72,6 +82,9 @@
           index: "capitalizable_group_id",
           width: (pageWidth*(5/100)),
           align: "center",
+          edittype: 'select',
+          editoptions: {value: cap_group_options},
+          formatter: 'select',
           editable: true
         },{
           name: 'commencement_date',
@@ -88,7 +101,7 @@
         }
       ],
       pager: "#jqGridPager",
-      height: 445,
+      height: 'auto',
       rowNum: 20,
       sortname : 'id',
       viewrecords: true,
