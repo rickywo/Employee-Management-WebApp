@@ -6,7 +6,7 @@ module CapHourCalculationHelper
   # project_weight: the weight of project of a specific team
 
   def calculate_capitalized_hour(work_days, capitalizable_rate, attendance_rate, dedication_rate, project_weight)
-    return work_days * (capitalizable_rate/100.0) * (attendance_rate/100.0) * (dedication_rate/100.0) * (project_weight/100.0)
+    return work_days * 7.6 * (capitalizable_rate/100.0) * (attendance_rate/100.0) * (dedication_rate/100.0) * (project_weight/100.0)
   end
 
   #result = calculate_capitalized_hour 10, 100, 100, 100, 0.5
@@ -49,7 +49,8 @@ module CapHourCalculationHelper
                                        employee.location,
                                        employee.capitalizable_group.capitalizable_rate,
                                        team_member.dedication_weight,
-                                       trans_workday_to_hours(7.6, intake).round(2))
+                                       intake)
+                                       #trans_workday_to_hours(7.6, intake).round(2))
               @result.append(row)
             end
           }
@@ -65,12 +66,21 @@ module CapHourCalculationHelper
     CSV.generate do |csv|
       csv << header
       @result.each do |row|
-        csv << [row.project.to_s,
-                row.employee_name.to_s,
-                row.date.strftime("%e-%b-%y"),
-                row.cap_hour.to_s,
-                row.project.to_s,
-                row.hourly_rate.to_s]
+        if row.location == 1
+          full_project_name = 'RB Projects(AU)' + row.project
+        else
+          full_project_name = 'RB Projects(LA)' + row.project
+        end
+        employee_name = row.employee_name.to_s
+        date = row.date.strftime("%e-%b-%y")
+        hours = row.cap_hour.round(1).to_s
+        hourly_rate = '%.2f' % row.hourly_rate
+        csv << [full_project_name,
+                employee_name,
+                date,
+                hours,
+                full_project_name,
+                hourly_rate]
       end
     end
   end
@@ -103,7 +113,7 @@ module CapHourCalculationHelper
   end
 
   class Date_container
-    LIMIT = 1.0
+    LIMIT = 7.6
     attr_accessor :date, :cap
     def initialize(date)
       @date = date
