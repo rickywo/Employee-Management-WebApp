@@ -8,7 +8,7 @@ class CapHourCalculationController < ApplicationController
 
     end
     p @this_iteration
-    @employees = Employee.all
+    @employees = Employee.order('id ASC').all
     @iterations = Iteration.all
     get_result_rows(@this_iteration)
     columns = ['project', 'employee_name', 'date', 'cap_hour', 'employee_type', 'project', 'hourly_rate']
