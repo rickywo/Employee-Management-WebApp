@@ -118,9 +118,11 @@ TeamMember.create(team_id: 3, employee_id: 3, dedication_weight: 100)
 #emplyee 4
 Employee.create(name: 'Dudley Dursley', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 4, employee_id: 4, dedication_weight: 100)
+p TeamMember.find(4)
 #emplyee 5
 Employee.create(name: 'Salazar Slytherin', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 5, employee_id: 5, dedication_weight: 100)
+p TeamMember.find(5)
 #emplyee 6
 Employee.create(name: 'Remus Lupin', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 6, employee_id: 6, dedication_weight: 100)
@@ -128,13 +130,13 @@ TeamMember.create(team_id: 6, employee_id: 6, dedication_weight: 100)
 Employee.create(name: 'Cedric Diggory', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 7, employee_id: 7, dedication_weight: 100)
 #emplyee 8
-Employee.create(name: 'Horace Slughorn', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Horace Slughorn', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 8, employee_id: 8, dedication_weight: 100)
 #emplyee 9
 Employee.create(name: 'Alicia Spinnet', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 9, employee_id: 9, dedication_weight: 100)
 #emplyee 10
-Employee.create(name: 'Cornelius Fudge', title: '', status: true, employment_type: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+Employee.create(name: 'Cornelius Fudge', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 1, employee_id: 10, dedication_weight: 100)
 #emplyee 11
 Employee.create(name: 'Gilderoy Lockhart', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
@@ -149,14 +151,15 @@ TeamMember.create(team_id: 4, employee_id: 13, dedication_weight: 100)
 Employee.create(name: 'Blaise Zabini', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 6, employee_id: 14, dedication_weight: 100)
 #emplyee 15
-Employee.create(name: 'Dedalus Diggle', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 7, employee_id: 15, dedication_weight: 100)
+p Employee.create(name: 'Dedalus Diggle', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+p TeamMember.create(team_id: 7, employee_id: 15, dedication_weight: 100)
 #emplyee 16
-Employee.create(name: 'Lucius Malfoy', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 8, employee_id: 16, dedication_weight: 100)
+p Employee.create(name: 'Lucius Malfoy', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+p TeamMember.create(team_id: 8, employee_id: 16, dedication_weight: 100)
 #emplyee 17
-Employee.create(name: 'Thomas Riddle', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
-TeamMember.create(team_id: 1, employee_id: 17, dedication_weight: 100)
+p Employee.create(name: 'Thomas Riddle', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
+p TeamMember.create(team_id: 1, employee_id: 17, dedication_weight: 100)
+p TeamMember.find(17)
 #emplyee 18
 Employee.create(name: 'Lavender Brown', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 1, commencement_date: nil, termination_date: nil)
 TeamMember.create(team_id: 2, employee_id: 18, dedication_weight: 100)
@@ -323,6 +326,8 @@ TeamMember.create(team_id: 5, employee_id: 63, dedication_weight: 10)
 TeamMember.create(team_id: 6, employee_id: 63, dedication_weight: 10)
 TeamMember.create(team_id: 7, employee_id: 63, dedication_weight: 15)
 TeamMember.create(team_id: 9, employee_id: 63, dedication_weight: 5)
+
+p TeamMember.last
 #emplyee 64
 Employee.create(name: 'Hermione Granger', title: '', status: true, employment_type: 1, attendance_type_id: 1, hourly_rate: 25, location:1, capitalizable_group_id: 4, commencement_date: nil, termination_date: nil)
 #emplyee 65
