@@ -21,17 +21,18 @@ module CapHourCalculationHelper
   # json.dedication_weight team_member.dedication_weight
   # json.result
 
-  def get_result_rows
+  # @param [Object] iteration
+  def get_result_rows(iteration)
     @result = []
     @employees.each do |employee|
       dca = []
       for i in 0..4 do
-        dca.append(Date_container.new(@this_iteration.start_date + i.days))
+        dca.append(Date_container.new(iteration.start_date + i.days))
       end
       employee.team_members.each do |team_member|
         team_member.team.projects.each do |project|
 
-          result = calculate_capitalized_hour @this_iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, team_member.dedication_weight, project.weight
+          result = calculate_capitalized_hour iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, team_member.dedication_weight, project.weight
           #p employee.name
           (0..4).each { |i|
             intake = dca[i].fill(result.to_f)

@@ -7,7 +7,7 @@ class TeamMembersController < ApplicationController
     #@teams = Team.order('id ASC').all
     @columns = ['id', 'team_id', 'employee_id', 'dedication_weight']
     @team_members = TeamMember.order('id ASC').paginate(
-        :page     => params[:page],
+        :page => params[:page],
         :per_page => params[:rows])
     if request.xhr?
       render :json => json_for_jqgrid(@team_members, @columns)
@@ -34,12 +34,16 @@ class TeamMembersController < ApplicationController
   # POST /team_members
   # POST /team_members.json
   def create
-    @team_member = TeamMember.create({:team_id => params[:team_id],
-                                      :employee_id => params[:employee_id],
-                                      :dedication_weight => params[:dedication_weight]})
+    if :opr == 'edit'
+      update
+    else
+      @team_member = TeamMember.create({:team_id => params[:team_id],
+                                        :employee_id => params[:employee_id],
+                                        :dedication_weight => params[:dedication_weight]})
 
-    if request.xhr?
-      render :json => @team_member
+      if request.xhr?
+        render :json => @team_member
+      end
     end
   end
 
@@ -48,8 +52,8 @@ class TeamMembersController < ApplicationController
   def update
     @team_member = TeamMember.find_by_id(params[:id])
     @team_member.update_attributes({:team_id => params[:team_id],
-                             :employee_id => params[:employee_id],
-                             :dedication_weight => params[:dedication_weight]})
+                                    :employee_id => params[:employee_id],
+                                    :dedication_weight => params[:dedication_weight]})
 
     if request.xhr?
       render :json => @team_member
@@ -68,13 +72,13 @@ class TeamMembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_team_member
-      @team_member = TeamMember.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_team_member
+    @team_member = TeamMember.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def team_member_params
-      params.require(:team_member).permit(:team_id, :employee_id, :dedication_weight)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def team_member_params
+    params.require(:team_member).permit(:team_id, :employee_id, :dedication_weight)
+  end
 end

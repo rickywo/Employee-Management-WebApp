@@ -783,7 +783,7 @@
       <schema id="8" parent="6" name="public">
         <object-id>2200</object-id>
         <visible>1</visible>
-        <introspection-timestamp>2016-09-15.13:05:24.030</introspection-timestamp>
+        <introspection-timestamp>2016-09-15.20:59:13.876</introspection-timestamp>
       </schema>
       <schema id="9" parent="6" name="pg_catalog">
         <object-id>11</object-id>

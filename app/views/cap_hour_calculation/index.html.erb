@@ -1,22 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cap_Hour_calculation</h1>
+<h1>Capitalization</h1>
 
-<div class="col-md-12">
-  <button type="button" class="btn btn-success">Export to CSV</button>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="col-md-12">
+      <a href="/cap_hour_calculation.csv?iteration_id=<%= @this_iteration.id %>">
+      <button type="button" class="btn btn-success">
+        Export to CSV
+      </button>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        <%= @this_iteration.start_date.strftime('%d/%m/%Y') %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <% Iteration.order('start_date ASC').all.each do |iteration| %>
+            <li><a href="/cap_hour_calculation?iteration_id=<%= iteration.id %>"><%= iteration.start_date.strftime('%d/%m/%Y') %></a></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+  <div class="col-sm-4"><label>View with Leaves:</label>
+
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-outline-info">
+        <input type="radio" autocomplete="off"> Yes
+      </label>
+      <label class="btn btn-outline-info active">
+        <input type="radio" autocomplete="off"> No
+      </label>
+    </div>
+  </div>
 </div>
-<label>View with Leaves:</label>
 
-<div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-outline-info">
-    <input type="radio" autocomplete="off"> Yes
-  </label>
-  <label class="btn btn-outline-info active">
-    <input type="radio" autocomplete="off"> No
-  </label>
-</div>
+</br>
 
-<span class="tag tag-default"><%=@this_iteration.start_date.to_s %>123</span></h3>
+
+
 
 <div class="mycenter">
   <table id="jqGrid"></table>
@@ -27,73 +53,88 @@
 
 <script type="text/javascript">
 
+  $(".dropdown-menu li a").click(function(){
+    $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+    $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+  });
+
   $(document).ready(function () {
+
     var pageWidth = 1280;
 
     $("#jqGrid").jqGrid({
-      url: "/cap_hour_calculation.json",
+      url: "/cap_hour_calculation.json?iteration_id=<%= @this_iteration.id %>",
       datatype: "json",
       colNames: ['Project Name', 'Employee', 'Date', 'Hours', 'Full Project Name', 'Porject Rate'],
       colModel: [
         {
           name: "project_name",
           index: "project_name",
-          width: (pageWidth*(30/100))
-        },{
+          width: (pageWidth * (30 / 100))
+        }, {
           name: "employee_name",
           index: "employee_name",
-          width: (pageWidth*(15/100))
-        },/*{
-          label: "Team",
-          name: "team_name",
-          width: (pageWidth*(5/100))
-        },{
-          label: "Employee Type",
-          name: "employee_employment_type",
-          width: (pageWidth*(5/100))
-        },*/{
+          width: (pageWidth * (15 / 100))
+        }, /*{
+         label: "Team",
+         name: "team_name",
+         width: (pageWidth*(5/100))
+         },{
+         label: "Employee Type",
+         name: "employee_employment_type",
+         width: (pageWidth*(5/100))
+         },*/{
           name: "date",
           index: "date",
           formatter: 'date', formatoptions: {newformat: 'd-M-Y'}, datefmt: 'd-M-Y',
-          width: (pageWidth*(10/100))
-        },{
+          width: (pageWidth * (10 / 100))
+        }, {
           name: "result",
           index: "result",
-          formatter:'number', formatoptions: { decimalPlaces: 2},
-          width: (pageWidth*(10/100))
-        },{
+          formatter: 'number', formatoptions: {decimalPlaces: 2},
+          width: (pageWidth * (10 / 100))
+        }, {
           name: "project_name",
           index: "project_name",
-          width: (pageWidth*(25/100))
-        },{
+          width: (pageWidth * (25 / 100))
+        }, {
           name: "employee_hourly_rate",
           index: "employee_hourly_rate",
-          width: (pageWidth*(10/100))
-        },/*{
-          label: "Capitalizable Rate",
-          name: "capitalizable_group_description",
-          width: (pageWidth*(5/100))
-        },{
-          label: "Team Dedication Weight",
-          name: "dedication_weight",
-          width: (pageWidth*(5/100))
-        },{
-          label: "Capitalizable Day",
-          name: "result",
-          width: (pageWidth*(5/100))
-        }*/
+          width: (pageWidth * (10 / 100))
+        }, /*{
+         label: "Capitalizable Rate",
+         name: "capitalizable_group_description",
+         width: (pageWidth*(5/100))
+         },{
+         label: "Team Dedication Weight",
+         name: "dedication_weight",
+         width: (pageWidth*(5/100))
+         },{
+         label: "Capitalizable Day",
+         name: "result",
+         width: (pageWidth*(5/100))
+         }*/
       ],
       loadonce: true, //To ensure paging button is functin
       pager: "#jqGridPager",
       height: 445,
       rowNum: 20,
-      sortname : 'employee_name',
+      sortname: 'employee_name',
       viewrecords: true,
     });
 
     // We need to have a navigation bar in order to add custom buttons to it
     $('#jqGrid').navGrid('#jqGridPager',
-        { edit: false, add: false, del: false, search: true, refresh: true, view: false, position: "left", cloneToTop: true });
+        {
+          edit: false,
+          add: false,
+          del: false,
+          search: true,
+          refresh: true,
+          view: false,
+          position: "left",
+          cloneToTop: true
+        });
 
     // add first custom button
     $('#jqGrid').navButtonAdd('#jqGridPager',
@@ -102,7 +143,7 @@
           title: "Column chooser",
           caption: "Columns",
           position: "last",
-          onClickButton: function() {
+          onClickButton: function () {
             // call the column chooser method
             jQuery("#jqGrid").jqGrid('columnChooser');
           }

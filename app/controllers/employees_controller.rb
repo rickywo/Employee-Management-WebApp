@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   def index
     #@teams = Team.order('id ASC').all
     @columns = ['id', 'name', 'title', 'status', 'employment_type', 'attendance_type_id', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
+    #@employees = Employee.all
     @employees = Employee.order('id ASC').paginate(
         :page     => params[:page],
         :per_page => params[:rows])

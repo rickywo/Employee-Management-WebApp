@@ -2,10 +2,6 @@
 
 <h1>Teams</h1>
 
-<br/><br/>
-
-<br/><br/>
-
 <div class="mycenter">
   <table id="jqGrid"></table>
   <div id="jqGridPager"></div>
@@ -53,7 +49,10 @@
     }).jqGrid("navGrid", "#jqGridPager", {
       edit: false,
       add: true,
-      del: true
+      del: true,
+      search: false,
+      refresh: false,
+      view: false
     }, {url: "/teams/update"}, {url: "/teams/create"}, {url: "teams/destroy/"}, {
       closeAfterEdit: true,
       closeOnEscape: true

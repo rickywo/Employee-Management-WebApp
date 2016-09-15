@@ -111,7 +111,10 @@
     }).jqGrid("navGrid", "#jqGridPager", {
       edit: false,
       add: true,
-      del: true
+      del: true,
+      search: false,
+      refresh: false,
+      view: false
     }, {url: "/employees/update"}, {url: "/employees/create"}, {url: "employees/destroy/"}, {
       closeAfterEdit: true,
       closeOnEscape: true

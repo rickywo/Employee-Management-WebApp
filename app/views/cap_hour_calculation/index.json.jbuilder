@@ -18,7 +18,7 @@
 #   end
 # end
 
-json.array! get_result_rows.each do |rows|
+json.array! get_result_rows(@this_iteration).each do |rows|
   #attr_accessor :employee_name, :team, :project, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_day
 
   #p employee.name

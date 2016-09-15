@@ -90,7 +90,10 @@
     }).jqGrid("navGrid", "#jqGridPager", {
       edit: false,
       add: true,
-      del: true
+      del: true,
+      search: false,
+      refresh: false,
+      view: false
     }, {url: "/projects/update"}, {url: "/projects/create"}, {url: "projects/destroy/"}, {
       closeAfterEdit: true,
       closeOnEscape: true
