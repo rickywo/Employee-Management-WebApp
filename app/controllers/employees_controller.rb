@@ -4,10 +4,11 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    #@teams = Team.order('id ASC').all
+    if params[:iteration_id] != nil
+      set_current_iteration(Iteration.find(params[:iteration_id]))
+    end
     @columns = ['id', 'name', 'title', 'status', 'employment_type', 'attendance_type_id', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
-    #@employees = Employee.all
-    @employees = Employee.order('id ASC').paginate(
+    @employees = Employee.where(iteration_id: current_iteration).order('id ASC').paginate(
         :page     => params[:page],
         :per_page => params[:rows])
     if request.xhr?

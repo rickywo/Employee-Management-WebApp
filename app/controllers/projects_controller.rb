@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    if params[:iteration_id] != nil
+      set_current_iteration(Iteration.find(params[:iteration_id]))
+    end
     @columns = ['id', 'team_id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
     @projects = Project.order('id ASC').paginate(
         :page => params[:page],

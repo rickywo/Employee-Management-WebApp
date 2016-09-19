@@ -8,19 +8,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Redbubble</a>
+      <a class="navbar-brand" href="/home/show?iteration_id=<%= current_iteration.id %>">Redbubble</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Teams" , teams_path %></li>
-        <li><%= link_to "Projects" , projects_path %></li>
-        <li><%= link_to "Employees" , employees_path %></li>
-        <li><%= link_to "Iterations" , iterations_path %></li>
-        <li><%= link_to "Groups" , capitalizable_groups_path %></li>
-        <li><%= link_to "Team Members" , team_members_path %></li>
-        <li><%= link_to "Capitalization" , cap_hour_calculation_path %></li>
+        <li><a href="/teams?iteration_id=<%= current_iteration.id %>">Team</a></li>
+        <li><a href="/projects?iteration_id=<%= current_iteration.id %>">Project</a></li>
+        <li><a href="/employees?iteration_id=<%= current_iteration.id %>">Employee</a></li>
+        <li><a href="/iterations?iteration_id=<%= current_iteration.id %>">Iteration</a></li>
+        <li><a href="/capitalizable_groups?iteration_id=<%= current_iteration.id %>">Group</a></li>
+        <li><a href="/team_members?iteration_id=<%= current_iteration.id %>">Capitalization</a></li>
+        <li><a href="/cap_hour_calculation?iteration_id=<%= current_iteration.id %>">Capitalization</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -21,7 +21,7 @@
   $(document).ready(function () {
     var pageWidth = 1280;
     $("#jqGrid").jqGrid({
-      url: "/employees",
+      url: "/employees.json?iteration_id=<%= current_iteration.id %>",
       editurl: '/employees/update',
       datatype: "json",
       mtype: 'GET',

@@ -1,2 +1,16 @@
 <h1>Home#show</h1>
 <p>Find me in app/views/home/show.html.erb</p>
+<div class="col-sm-4">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+      <%= current_iteration.start_date.strftime('%d/%m/%Y') %>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <% Iteration.order('start_date ASC').all.each do |iteration| %>
+          <li><a href="/home/show?iteration_id=<%= iteration.id %>"><%= iteration.start_date.strftime('%d/%m/%Y') %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

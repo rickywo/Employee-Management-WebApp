@@ -1,10 +1,71 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Capitalizable Groups</h1>
+<div class="mycenter">
+  <table id="jqGrid"></table>
+  <div id="jqGridPager"></div>
+</div>
 
-<br /><br />
+<script type="text/javascript">
 
-<table id=capitalizable_groups_list></table>
-<div id=capitalizable_groups_pager></div>
+  $(document).ready(function () {
+    var pageWidth = 1280;
+    $("#jqGrid").jqGrid({
+      url: "/capitalizable_groups",
+      editurl: '/capitalizable_groups/update',
+      datatype: "json",
+      mtype: 'GET',
+      colNames: ['ID#', 'Capitalizable rate %', 'Description'],
+      colModel: [
+        {
+          name: "id",
+          index: "id",
+          width: (pageWidth*(20/100))
+        },
+        {
+          name: 'capitalizable_rate',
+          index: "capitalizable_rate",
+          editable: true,
+          width: (pageWidth*(30/100))
+        },
+        {
+          name: 'description',
+          index: "description",
+          editable: true,
+          width: (pageWidth*(30/100))
+        }
+      ],
+      pager: "#jqGridPager",
+      height: 'auto',
+      rowNum: 20,
+      rowList : [10, 20, 30],
+      sortname : 'id',
+      viewrecords: true,
 
-<%= raw(capitalizable_groups_jqgrid) %>
+      onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
+
+    }).jqGrid("navGrid", "#jqGridPager", {
+      edit: false,
+      add: true,
+      del: true,
+      search: false,
+      refresh: false,
+      view: false
+    }, {url: "/capitalizable_groups/update"}, {url: "/capitalizable_groups/create"}, {url: "capitalizable_groups/destroy/"}, {
+      closeAfterEdit: true,
+      closeOnEscape: true
+    });
+
+    var lastSelection;
+
+    function editRow(id) {
+      if (id && id !== lastSelection) {
+        var grid = $("#jqGrid");
+        grid.jqGrid('restoreRow', lastSelection);
+        grid.jqGrid('editRow', id, {keys: true});
+        lastSelection = id;
+      }
+    }
+  });
+
+</script>

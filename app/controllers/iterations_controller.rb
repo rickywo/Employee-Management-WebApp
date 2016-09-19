@@ -4,7 +4,9 @@ class IterationsController < ApplicationController
   # GET /iterations
   # GET /iterations.json
   def index
-    #@teams = Team.order('id ASC').all
+    if params[:iteration_id] != nil
+      set_current_iteration(Iteration.find(params[:iteration_id]))
+    end
     @columns = ['id', 'start_date', 'end_date', 'work_day']
     @iterations = Iteration.order('id ASC').paginate(
         :page => params[:page],

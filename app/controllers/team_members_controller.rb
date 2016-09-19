@@ -4,7 +4,9 @@ class TeamMembersController < ApplicationController
   # GET /team_members
   # GET /team_members.json
   def index
-    #@teams = Team.order('id ASC').all
+    if params[:iteration_id] != nil
+      set_current_iteration(Iteration.find(params[:iteration_id]))
+    end
     @columns = ['id', 'team_id', 'employee_id', 'dedication_weight']
     @team_members = TeamMember.order('id ASC').paginate(
         :page => params[:page],

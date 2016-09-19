@@ -85,11 +85,6 @@ module CapHourCalculationHelper
     end
   end
 
-
-  def get_current_iteration
-    Iteration.where("start_date < ? AND end_date > ?", Time.now, Time.now).take
-  end
-
   def trans_workday_to_hours(hr_per_day, workday)
     (hr_per_day * workday).to_f
   end
