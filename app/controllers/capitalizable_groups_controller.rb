@@ -6,7 +6,7 @@ class CapitalizableGroupsController < ApplicationController
   def index
     @columns = ['id', 'capitalizable_rate', 'description']
     @capitalizable_groups = CapitalizableGroup.order('id ASC').paginate(
-        :page     => params[:page],
+        :page => params[:page],
         :per_page => params[:rows])
     if request.xhr?
       render :json => json_for_jqgrid(@capitalizable_groups, @columns)
@@ -30,10 +30,14 @@ class CapitalizableGroupsController < ApplicationController
   # POST /capitalizable_groups
   # POST /capitalizable_groups.json
   def create
-    @capitalizable_group = CapitalizableGroup.create({:capitalizable_rate => params[:capitalizable_rate], :description => params[:description]})
+    if :opr == 'edit'
+      update
+    else
+      @capitalizable_group = CapitalizableGroup.create({:capitalizable_rate => params[:capitalizable_rate], :description => params[:description]})
 
-    if request.xhr?
-      render :json => @capitalizable_group
+      if request.xhr?
+        render :json => @capitalizable_group
+      end
     end
   end
 
@@ -60,13 +64,13 @@ class CapitalizableGroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_capitalizable_group
-      @capitalizable_group = CapitalizableGroup.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_capitalizable_group
+    @capitalizable_group = CapitalizableGroup.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def capitalizable_group_params
-      params.require(:capitalizable_group).permit(:capitalizable_rate, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def capitalizable_group_params
+    params.require(:capitalizable_group).permit(:capitalizable_rate, :description)
+  end
 end

@@ -34,12 +34,16 @@ class IterationsController < ApplicationController
   # POST /iterations
   # POST /iterations.json
   def create
-    @iteration = Iteration.create({:start_date => params[:start_date],
-                                   :end_date => params[:end_date],
-                                   :work_day => params[:work_day]})
+    if :opr == 'edit'
+      update
+    else
+      @iteration = Iteration.create({:start_date => params[:start_date],
+                                     :end_date => params[:end_date],
+                                     :work_day => params[:work_day]})
 
-    if request.xhr?
-      render :json => @iteration
+      if request.xhr?
+        render :json => @iteration
+      end
     end
   end
 
