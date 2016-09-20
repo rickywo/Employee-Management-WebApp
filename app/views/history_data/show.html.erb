@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iteration data:</strong>
+  <%= @history_datum.iteration_data %>
+</p>
+
+<p>
+  <strong>Result data:</strong>
+  <%= @history_datum.result_data %>
+</p>
+
+<%= link_to 'Edit', edit_history_datum_path(@history_datum) %> |
+<%= link_to 'Back', history_data_path %>

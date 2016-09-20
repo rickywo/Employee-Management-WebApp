@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :status
       t.boolean :is_capitalizable
-      t.integer :weight
+      t.float :weight
       t.datetime :release_date
       t.text :description
       t.integer :team_id

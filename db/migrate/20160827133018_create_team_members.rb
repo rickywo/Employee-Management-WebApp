@@ -3,7 +3,7 @@ class CreateTeamMembers < ActiveRecord::Migration[5.0]
     create_table :team_members do |t|
       t.integer :team_id
       t.integer :employee_id
-      t.integer :dedication_weight
+      t.float :dedication_weight
 
       t.timestamps
     end

@@ -1,0 +1,27 @@
+<%= form_for(history_datum) do |f| %>
+  <% if history_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(history_datum.errors.count, "error") %> prohibited this history_datum from being saved:</h2>
+
+      <ul>
+      <% history_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :iteration_data %>
+    <%= f.text_field :iteration_data %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result_data %>
+    <%= f.text_field :result_data %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

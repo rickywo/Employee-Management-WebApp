@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  iteration_id: 1
-  employee_id: 1
+  iteration_data: 
+  result_data: 
 
 two:
-  iteration_id: 1
-  employee_id: 1
+  iteration_data: 
+  result_data: 

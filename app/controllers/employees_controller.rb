@@ -6,16 +6,19 @@ class EmployeesController < ApplicationController
   def index
     #@teams = Team.order('id ASC').all
     @columns = ['id', 'name', 'title', 'status', 'employment_type', 'attendance_type_id', 'hourly_rate', 'location', 'capitalizable_group_id','commencement_date', 'termination_date']
-    #@employees = Employee.all
+    #@employees = Employee.order('id ASC').all
     @employees = Employee.order('id ASC').paginate(
         :page     => params[:page],
         :per_page => params[:rows])
+=begin
+    respond_to do |format|
+      format.html
+      format.json
+    end
+=end
     if request.xhr?
       render :json => json_for_jqgrid(@employees, @columns)
     end
-    # @teams = Team.order('id ASC').paginate(
-    #     :page     => params[:page],
-    #     :per_page => params[:rows])
   end
 
   # GET /employees/1

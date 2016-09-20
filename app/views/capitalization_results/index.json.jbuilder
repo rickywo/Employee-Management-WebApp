@@ -1,0 +1,1 @@
+json.array! @capitalization_results, partial: 'capitalization_results/capitalization_result', as: :capitalization_result

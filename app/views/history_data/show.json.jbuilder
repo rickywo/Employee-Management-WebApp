@@ -1,0 +1,1 @@
+json.partial! "history_data/history_datum", history_datum: @history_datum

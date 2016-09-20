@@ -1,5 +1,7 @@
 class CapHourCalculationController < ApplicationController
   include CapHourCalculationHelper
+  include HistoryDataHelper
+
   def index
     @this_iteration = get_current_iteration
     if params[:iteration_id] != nil
@@ -18,6 +20,15 @@ class CapHourCalculationController < ApplicationController
       format.json
       format.csv {send_data result_to_csv(columns, header), filename: "Timesheet output.csv"}
     end
+  end
+
+  def save_iteration
+    #save_iteration_data(params[:iteration_id])
+    restore_iteration_data(params[:iteration_id])
+    # p CapitalizableGroup.first
+    # p t = CapitalizableGroup.first.to_json
+    # e = CapitalizableGroup.new
+    # p e.from_json(t)
   end
 
 

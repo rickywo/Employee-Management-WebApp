@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913131829) do
+ActiveRecord::Schema.define(version: 20160920020105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,18 +24,22 @@ ActiveRecord::Schema.define(version: 20160913131829) do
   end
 
   create_table "capitalizable_groups", force: :cascade do |t|
-    t.integer  "capitalizable_rate"
+    t.float    "capitalizable_rate"
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
   create_table "capitalization_results", force: :cascade do |t|
-    t.integer  "team_id"
-    t.integer  "employee_id"
+    t.string   "project_name"
+    t.string   "employee_name"
+    t.datetime "date"
+    t.float    "hours"
+    t.string   "full_project_name"
+    t.string   "hourly_rate"
     t.integer  "iteration_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -52,6 +56,15 @@ ActiveRecord::Schema.define(version: 20160913131829) do
     t.datetime "updated_at",             null: false
     t.integer  "attendance_type_id"
     t.index ["attendance_type_id"], name: "index_employees_on_attendance_type_id", using: :btree
+  end
+
+  create_table "history_data", force: :cascade do |t|
+    t.text     "iteration_data"
+    t.text     "result_data"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "iteration_id"
+    t.index ["iteration_id"], name: "index_history_data_on_iteration_id", using: :btree
   end
 
   create_table "iteration_attendances", force: :cascade do |t|
@@ -81,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160913131829) do
     t.string   "name"
     t.integer  "status"
     t.boolean  "is_capitalizable"
-    t.integer  "weight"
+    t.float    "weight"
     t.datetime "release_date"
     t.text     "description"
     t.integer  "team_id"
@@ -92,7 +105,7 @@ ActiveRecord::Schema.define(version: 20160913131829) do
   create_table "team_members", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "employee_id"
-    t.integer  "dedication_weight"
+    t.float    "dedication_weight"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -117,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160913131829) do
   add_foreign_key "capitalization_results", "iterations"
   add_foreign_key "employees", "attendance_types"
   add_foreign_key "employees", "capitalizable_groups"
+  add_foreign_key "history_data", "iterations"
   add_foreign_key "iteration_attendances", "employees"
   add_foreign_key "iteration_attendances", "iterations"
   add_foreign_key "project_iterations", "iterations"

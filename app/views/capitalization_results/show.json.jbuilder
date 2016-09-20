@@ -1,0 +1,1 @@
+json.partial! "capitalization_results/capitalization_result", capitalization_result: @capitalization_result

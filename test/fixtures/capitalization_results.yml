@@ -1,7 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Capitalization: MyString
+  project_name: MyString
+  employee_name: MyString
+  date: 2016-09-20 11:00:48
+  hours: 1.5
+  full_project_name: MyString
+  hourly_rate: MyString
 
 two:
-  Capitalization: MyString
+  project_name: MyString
+  employee_name: MyString
+  date: 2016-09-20 11:00:48
+  hours: 1.5
+  full_project_name: MyString
+  hourly_rate: MyString

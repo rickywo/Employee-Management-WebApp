@@ -1,0 +1,1 @@
+json.array! @history_data, partial: 'history_data/history_datum', as: :history_datum

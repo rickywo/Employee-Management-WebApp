@@ -1,0 +1,47 @@
+<%= form_for(capitalization_result) do |f| %>
+  <% if capitalization_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(capitalization_result.errors.count, "error") %> prohibited this capitalization_result from being saved:</h2>
+
+      <ul>
+      <% capitalization_result.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_name %>
+    <%= f.text_field :project_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employee_name %>
+    <%= f.text_field :employee_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hours %>
+    <%= f.text_field :hours %>
+  </div>
+
+  <div class="field">
+    <%= f.label :full_project_name %>
+    <%= f.text_field :full_project_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hourly_rate %>
+    <%= f.text_field :hourly_rate %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

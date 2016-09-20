@@ -5,7 +5,9 @@
 <div class="row">
   <div class="col-sm-4">
     <div class="col-md-12">
-      <a href="/cap_hour_calculation.csv?iteration_id=<%= @this_iteration.id %>">
+      <a data-method= 'post' href="/cap_hour_calculation/save_iteration?iteration_id=<%= @this_iteration.id %>">
+
+      <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
       <button type="button" class="btn btn-success">
         Export to CSV
       </button>

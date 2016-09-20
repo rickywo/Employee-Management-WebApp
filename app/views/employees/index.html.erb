@@ -101,9 +101,9 @@
         }
       ],
       pager: "#jqGridPager",
+      loadonce: true, //To ensure paging button is function
       height: 'auto',
       rowNum: 20,
-      sortname : 'id',
       viewrecords: true,
 
       onSelectRow: editRow, // the javascript function to call on row click. will ues to to put the row in edit mode
@@ -112,13 +112,10 @@
       edit: false,
       add: true,
       del: true,
-      search: false,
+      search: true,
       refresh: false,
       view: false
-    }, {url: "/employees/update"}, {url: "/employees/create"}, {url: "employees/destroy/"}, {
-      closeAfterEdit: true,
-      closeOnEscape: true
-    });
+    }, {url: "/employees/update"}, {url: "/employees/create", closeAfterEdit: true, closeOnEscape: true}, {url: "employees/destroy/"}, {});
 
 
      var lastSelection;

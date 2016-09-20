@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @capitalization_result.project_name %>
+</p>
+
+<p>
+  <strong>Employee name:</strong>
+  <%= @capitalization_result.employee_name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @capitalization_result.date %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @capitalization_result.hours %>
+</p>
+
+<p>
+  <strong>Full project name:</strong>
+  <%= @capitalization_result.full_project_name %>
+</p>
+
+<p>
+  <strong>Hourly rate:</strong>
+  <%= @capitalization_result.hourly_rate %>
+</p>
+
+<%= link_to 'Edit', edit_capitalization_result_path(@capitalization_result) %> |
+<%= link_to 'Back', capitalization_results_path %>
