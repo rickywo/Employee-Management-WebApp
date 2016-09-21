@@ -126,18 +126,16 @@
   $(document).ready(function() {
     $('.from-id li > a').click(function(e){
       var iteration_str = this.innerHTML;
-      var id = iteration_str.charAt(0);
-      var str_arr = iteration_str.split('|');
+      var str_arr = iteration_str.split(' |  ');
       $('#from-iter-label').text(str_arr[1]);
-      $('.from-btn').text(id)
+      $('.from-btn').text(str_arr[0])
     });
 
     $('.to-id li > a').click(function(e){
       var iteration_str = this.innerHTML;
-      var id = iteration_str.charAt(0);
-      var str_arr = iteration_str.split('|');
+      var str_arr = iteration_str.split(' |  ');
       $('#to-iter-label').text(str_arr[1]);
-      $('.to-btn').text(id)
+      $('.to-btn').text(str_arr[0])
     });
 
     $('.copy-btn').click(function(){
