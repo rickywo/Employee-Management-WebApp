@@ -1,2 +1,31 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<div class="container bs-docs-container">
+  <div class="bs-docs-section">
+    <div class="row bs-callout bs-callout-warning">
+      <div class="col-sm-8">
+        <p>
+          Please select a iteration to change a iteration to work on
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+            <%= current_iteration.start_date.strftime('%d/%m/%Y') %> - <%= current_iteration.end_date.strftime('%d/%m/%Y') %>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <% Iteration.order('start_date ASC').all.each do |iteration| %>
+                <li><a href="/home/show?iteration_id=<%= iteration.id %>"><%= iteration.start_date.strftime('%d/%m/%Y') %></a></li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+      <!--<div class="col-sm-4">
+        <label>Click button to proceed </label>
+        <button type="button" class="btn btn-success">
+          Proceed
+        </button>
+      </div>-->
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class CapHourCalculationController < ApplicationController
   include HistoryDataHelper
 
   def index
-    @this_iteration = get_current_iteration
+    @this_iteration = current_iteration
     if params[:iteration_id] != nil
       p 'iteration is not nil'
       @this_iteration = Iteration.find(params[:iteration_id])

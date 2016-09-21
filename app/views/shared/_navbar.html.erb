@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Redbubble</a>
+      <a class="navbar-brand" href="<%= root_path %>">Redbubble</a>
+      <p class="navbar-text"><%= current_iteration.start_date.strftime('%d/%m/%Y') %> - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

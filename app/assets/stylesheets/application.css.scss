@@ -24,3 +24,26 @@ provides jqgrid jquery plugin from gem 'jqgrid-jquery-rails':
 .mycenter > .ui-jqgrid { margin-left: auto; margin-right: auto; }
 
 .ui-jqgrid {font-size:0.6em}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bs-docs-section {
+  margin-bottom: 60px;
+}
+
+.bs-callout-warning {
+  border-left-color: #aa6708;
+}
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}

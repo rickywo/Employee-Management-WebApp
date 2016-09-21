@@ -1,3 +1,4 @@
+<div class="container bs-docs-container">
 <p id="notice"><%= notice %></p>
 
 <h1>Capitalization</h1>
@@ -52,7 +53,7 @@
 </div>
 
 
-
+</div>
 <script type="text/javascript">
 
   $(".dropdown-menu li a").click(function(){
@@ -62,7 +63,8 @@
 
   $(document).ready(function () {
 
-    var pageWidth = 1280;
+    var pageWidth = $("#jqGrid").parent().width()
+    //var pageWidth = 1280;
 
     $("#jqGrid").jqGrid({
       url: "/cap_hour_calculation.json?iteration_id=<%= @this_iteration.id %>",
