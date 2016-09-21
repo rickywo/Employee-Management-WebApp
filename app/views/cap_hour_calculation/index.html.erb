@@ -6,9 +6,7 @@
 <div class="row">
   <div class="col-sm-4">
     <div class="col-md-12">
-      <a data-method= 'post' href="/cap_hour_calculation/save_iteration?iteration_id=<%= @this_iteration.id %>">
-
-      <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
+      <a href="/cap_hour_calculation.csv?iteration_id=<%= current_iteration.id %>">
       <button type="button" class="btn btn-success">
         Export to CSV
       </button>
@@ -16,17 +14,6 @@
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        <%= @this_iteration.start_date.strftime('%d/%m/%Y') %>
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <% Iteration.order('start_date ASC').all.each do |iteration| %>
-            <li><a href="/cap_hour_calculation?iteration_id=<%= iteration.id %>"><%= iteration.start_date.strftime('%d/%m/%Y') %></a></li>
-        <% end %>
-      </ul>
-    </div>
 
   </div>
   <div class="col-sm-4"><label>View with Leaves:</label>
@@ -64,10 +51,9 @@
   $(document).ready(function () {
 
     var pageWidth = $("#jqGrid").parent().width()
-    //var pageWidth = 1280;
 
     $("#jqGrid").jqGrid({
-      url: "/cap_hour_calculation.json?iteration_id=<%= @this_iteration.id %>",
+      url: "/cap_hour_calculation.json?iteration_id=<%= current_iteration.id %>",
       datatype: "json",
       colNames: ['Project Name', 'Employee', 'Date', 'Hours', 'Full Project Name', 'Porject Rate'],
       colModel: [

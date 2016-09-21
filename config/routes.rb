@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#show'
+  post 'home/copy_iteration_data'
+  post 'home/save_data'
   get '/cap_hour_calculation', to: 'cap_hour_calculation#index'
-  post 'cap_hour_calculation/save_iteration'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

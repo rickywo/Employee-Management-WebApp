@@ -1,31 +1,158 @@
 <div class="container bs-docs-container">
   <div class="bs-docs-section">
-    <div class="row bs-callout bs-callout-warning">
-      <div class="col-sm-8">
-        <p>
-          Please select a iteration to change a iteration to work on
-        </p>
-      </div>
-      <div class="col-sm-4">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-            <%= current_iteration.start_date.strftime('%d/%m/%Y') %> - <%= current_iteration.end_date.strftime('%d/%m/%Y') %>
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <% Iteration.order('start_date ASC').all.each do |iteration| %>
-                <li><a href="/home/show?iteration_id=<%= iteration.id %>"><%= iteration.start_date.strftime('%d/%m/%Y') %></a></li>
-            <% end %>
-          </ul>
+    <div class="bs-callout bs-callout-warning">
+      <div class="row">
+        <div class="col-sm-8">
+          <label>
+            Please select an iteration to change a iteration to work on
+          </label>
         </div>
+        <div class="col-sm-4">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= current_iteration.id%> | <%= current_iteration.start_date.strftime('%d/%m/%Y') %>
+              - <%= current_iteration.end_date.strftime('%d/%m/%Y') %>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <% Iteration.order('start_date ASC').all.each do |iteration| %>
+                  <li>
+                    <a href="/home/show?iteration_id=<%= iteration.id %>"><%= iteration.id%> | <%= iteration.start_date.strftime('%d/%m/%Y') %> - <%= iteration.end_date.strftime('%d/%m/%Y') %></a>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
 
+        </div>
+        <!--<div class="col-sm-4">
+          <label>Click button to proceed </label>
+          <button type="button" class="btn btn-success">
+            Proceed
+          </button>
+        </div>-->
       </div>
-      <!--<div class="col-sm-4">
-        <label>Click button to proceed </label>
-        <button type="button" class="btn btn-success">
-          Proceed
-        </button>
-      </div>-->
+    </div>
+  </div>
+  <div class="bs-docs-section">
+    <div class="bs-callout bs-callout-warning">
+      <div class="row">
+        <div class="col-sm-8">
+          <label>
+            Save current data to Iteration: <%= current_iteration.id%> | <%= current_iteration.start_date.strftime('%d/%m/%Y') %>
+            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %>
+          </label>
+        </div>
+        <div class="col-sm-4">
+          <a data-method= 'post' href="/home/save_data">
+            <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
+            <button type="button" class="btn btn-success">
+              Save
+            </button>
+          </a>
+
+        </div>
+        <!--<div class="col-sm-4">
+          <label>Click button to proceed </label>
+          <button type="button" class="btn btn-success">
+            Proceed
+          </button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <div class="bs-docs-section">
+    <div class="bs-callout bs-callout-warning">
+      <div class="row">
+        <div class="col-sm-12">
+          <label>
+            Copy data from Iteration A to Iteration B
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="col-sm-2 text-right"><p>From </p></div>
+          <div class="col-sm-2">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle from-btn" type="button" data-toggle="dropdown"><%= current_iteration.id %></button>
+              <ul class="dropdown-menu from-id">
+                <% Iteration.order('start_date ASC').all.each do |iteration| %>
+                    <li>
+                      <a><%= iteration.id%> |  <%= iteration.start_date.strftime('%d/%m/%Y')%> - <%=iteration.end_date.strftime('%d/%m/%Y')%></a>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-8 text-right"><p id="from-iter-label"><%= current_iteration.start_date.strftime('%d/%m/%Y') %>
+            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-sm-2 text-right"><p>to </p></div>
+          <div class="col-sm-2">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle to-btn" type="button" data-toggle="dropdown"><%= current_iteration.id%></button>
+              <ul class="dropdown-menu  to-id">
+                <% Iteration.order('start_date ASC').all.each do |iteration| %>
+                    <li>
+                      <a><%= iteration.id%> |  <%= iteration.start_date.strftime('%d/%m/%Y')%> - <%=iteration.end_date.strftime('%d/%m/%Y')%></a>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-8 text-right"><p id="to-iter-label"><%= current_iteration.start_date.strftime('%d/%m/%Y') %>
+            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p></div>
+        </div>
+        <div class="col-sm-4">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+
+              <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
+              <button type="button" class="btn btn-success copy-btn">
+                Copy
+              </button>
+
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+
+  $(document).ready(function() {
+    $('.from-id li > a').click(function(e){
+      var iteration_str = this.innerHTML;
+      var id = iteration_str.charAt(0);
+      var str_arr = iteration_str.split('|');
+      $('#from-iter-label').text(str_arr[1]);
+      $('.from-btn').text(id)
+    });
+
+    $('.to-id li > a').click(function(e){
+      var iteration_str = this.innerHTML;
+      var id = iteration_str.charAt(0);
+      var str_arr = iteration_str.split('|');
+      $('#to-iter-label').text(str_arr[1]);
+      $('.to-btn').text(id)
+    });
+
+    $('.copy-btn').click(function(){
+      var url = "copy_iteration_data";
+      var from_id = $('.from-btn').text();
+      var to_id = $('.to-btn').text();
+      $.post(url,
+          {
+            from_id: from_id,
+            to_id: to_id
+          },
+          function(){
+            alert("Copy successfully");
+          });
+    });
+  });
+
+</script>

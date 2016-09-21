@@ -23,6 +23,21 @@ module HistoryDataHelper
 
   end
 
+  def save_iteration_by_id(iteration_id, data)
+    history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
+    if history_datum == nil
+      HistoryDatum.create(iteration_id: iteration_id, iteration_data: data)
+    else
+      HistoryDatum.update(iteration_id: iteration_id, iteration_data: data)
+    end
+  end
+
+
+  def get_iteration_data_by_id(iteration_id)
+    history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
+    data = history_datum.iteration_data unless history_datum == nil
+  end
+
   def save_result_data(iteration_id)
 
   end
@@ -32,55 +47,55 @@ module HistoryDataHelper
     if @history_datum != nil
       json_c = HistoryDatum.first.iteration_data
       @container = JSON.parse(json_c)
-    end
-    clean_db
-    teams = @container["data"]["teams"]
-    projects = @container["data"]["projects"]
-    project_iterations = @container["data"]["project_iterations"]
-    attendance_types = @container["data"]["attendance_types"]
-    capitalizable_groups = @container["data"]["capitalizable_groups"]
-    employees = @container["data"]["employees"]
-    iteration_attendances = @container["data"]["iteration_attendances"]
-    team_members = @container["data"]["team_members"]
-    teams.each do |team|
-      t = Team.new
-      t.from_json(team)
-      t.save
-    end
-    projects.each do |project|
-      t = Project.new
-      t.from_json(project)
-      t.save
-    end
-    project_iterations.each do |pi|
-      t = ProjectIteration.new
-      t.from_json(pi)
-      t.save
-    end
-    attendance_types.each do |at|
-      t = AttendanceType.new
-      t.from_json(at)
-      t.save
-    end
-    capitalizable_groups.each do |cg|
-      t = CapitalizableGroup.new
-      t.from_json(cg)
-      t.save
-    end
-    employees.each do |e|
-      t = Employee.new
-      t.from_json(e)
-      t.save
-    end
-    iteration_attendances.each do |ia|
-      t = IterationAttendance.new
-      t.from_json(ia)
-      t.save
-    end
-    team_members.each do |tm|
-      t = TeamMember.new
-      t.from_json(tm)
-      t.save
+      clean_db
+      teams = @container["data"]["teams"]
+      projects = @container["data"]["projects"]
+      project_iterations = @container["data"]["project_iterations"]
+      attendance_types = @container["data"]["attendance_types"]
+      capitalizable_groups = @container["data"]["capitalizable_groups"]
+      employees = @container["data"]["employees"]
+      iteration_attendances = @container["data"]["iteration_attendances"]
+      team_members = @container["data"]["team_members"]
+      teams.each do |team|
+        t = Team.new
+        t.from_json(team)
+        t.save
+      end
+      projects.each do |project|
+        t = Project.new
+        t.from_json(project)
+        t.save
+      end
+      project_iterations.each do |pi|
+        t = ProjectIteration.new
+        t.from_json(pi)
+        t.save
+      end
+      attendance_types.each do |at|
+        t = AttendanceType.new
+        t.from_json(at)
+        t.save
+      end
+      capitalizable_groups.each do |cg|
+        t = CapitalizableGroup.new
+        t.from_json(cg)
+        t.save
+      end
+      employees.each do |e|
+        t = Employee.new
+        t.from_json(e)
+        t.save
+      end
+      iteration_attendances.each do |ia|
+        t = IterationAttendance.new
+        t.from_json(ia)
+        t.save
+      end
+      team_members.each do |tm|
+        t = TeamMember.new
+        t.from_json(tm)
+        t.save
+      end
     end
   end
 

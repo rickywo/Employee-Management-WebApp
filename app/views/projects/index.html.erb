@@ -1,10 +1,11 @@
+<div class="container bs-docs-container">
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
 
 <table id="jqGrid"></table>
 <div id="jqGridPager"></div>
-
+</div>
 
 <script type="text/javascript">
   var team_options = '';
@@ -13,7 +14,7 @@
   <% end %>
   team_options = team_options.substring(0, team_options.length - 1);
   $(document).ready(function () {
-    var pageWidth = 1280;
+    var pageWidth = $("#jqGrid").parent().width()
     $("#jqGrid").jqGrid({
       url: "/projects",
       editurl: '/projects/update',
