@@ -43,11 +43,11 @@ module HistoryDataHelper
   end
 
   def restore_iteration_data(iteration_id)
+    clean_db
     @history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
     if @history_datum != nil
       json_c = HistoryDatum.first.iteration_data
       @container = JSON.parse(json_c)
-      clean_db
       teams = @container["data"]["teams"]
       projects = @container["data"]["projects"]
       project_iterations = @container["data"]["project_iterations"]
