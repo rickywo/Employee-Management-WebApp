@@ -73,8 +73,8 @@ module CapHourCalculationHelper
         end
         employee_name = row.employee_name.to_s
         date = row.date.strftime("%e-%b-%y")
-        hours = row.cap_hour.round(1).to_s
-        hourly_rate = '%f' % row.hourly_rate
+        hours = row.cap_hour.to_s
+        hourly_rate = '%.2f' % row.hourly_rate
         csv << [full_project_name,
                 employee_name,
                 date,
