@@ -67,14 +67,14 @@ module CapHourCalculationHelper
       csv << header
       @result.each do |row|
         if row.location == 1
-          full_project_name = 'RB Projects(AU)' + row.project
+          full_project_name = 'RB Projects(AU) : ' + row.project
         else
-          full_project_name = 'RB Projects(LA)' + row.project
+          full_project_name = 'RB Projects(US) : ' + row.project
         end
         employee_name = row.employee_name.to_s
         date = row.date.strftime("%e-%b-%y")
         hours = row.cap_hour.round(1).to_s
-        hourly_rate = '%.2f' % row.hourly_rate
+        hourly_rate = '%f' % row.hourly_rate
         csv << [full_project_name,
                 employee_name,
                 date,
