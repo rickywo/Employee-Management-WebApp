@@ -5,16 +5,14 @@ class ApplicationController < ActionController::Base
   WORK_ITERATION = "work_iteration"
 
   def current_iteration
-    begin
-      work_iteration = State.where(state: WORK_ITERATION).take
+    work_iteration = State.where(state: WORK_ITERATION).take
+    if work_iteration != nil
       Iteration.find(work_iteration.value)
-    rescue ArgumentError
-      # Invalid date
-      raise ActiveRecord::RecordNotFound
-    end
-  rescue ActiveRecord::RecordNotFound
+    else
       State.create(state: WORK_ITERATION, value: Iteration.first.id)
       Iteration.first
+    end
+
   end
 
   def set_current_iteration(iteration_id)
