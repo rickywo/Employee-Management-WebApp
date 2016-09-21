@@ -31,30 +31,30 @@ module CapHourCalculationHelper
       end
       employee.team_members.each do |team_member|
         team_member.team.projects.each do |project|
+          if project.is_capitalizable
+            result = calculate_capitalized_hour iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, team_member.dedication_weight, project.weight
+            #p employee.name
+            (0..4).each { |i|
+              intake = dca[i].fill(result.to_f)
+              if intake.round(2) != 0
 
-          result = calculate_capitalized_hour iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, team_member.dedication_weight, project.weight
-          #p employee.name
-          (0..4).each { |i|
-            intake = dca[i].fill(result.to_f)
-            if intake.round(2) != 0
+                result -= intake
 
-              result -= intake
-
-              row = Cap_result_row.new(employee.name,
-                                       project.team.name,
-                                       project.name,
-                                       dca[i].date,
-                                       employee.employment_type,
-                                       employee.hourly_rate,
-                                       employee.location,
-                                       employee.capitalizable_group.capitalizable_rate,
-                                       team_member.dedication_weight,
-                                       intake)
-                                       #trans_workday_to_hours(7.6, intake).round(2))
-              @result.append(row)
-            end
-          }
-
+                row = Cap_result_row.new(employee.name,
+                                         project.team.name,
+                                         project.name,
+                                         dca[i].date,
+                                         employee.employment_type,
+                                         employee.hourly_rate,
+                                         employee.location,
+                                         employee.capitalizable_group.capitalizable_rate,
+                                         team_member.dedication_weight,
+                                         intake)
+                #trans_workday_to_hours(7.6, intake).round(2))
+                @result.append(row)
+              end
+            }
+          end
           #p json
         end
       end
@@ -98,6 +98,7 @@ module CapHourCalculationHelper
   # noinspection RubyTooManyInstanceVariablesInspection
   class Cap_result_row
     attr_accessor :employee_name, :team, :project, :date, :employee_type, :hourly_rate, :location, :cap_weight, :dedication_weight, :cap_hour
+
     def initialize(name, t, p, d, type, rate, loc, cap_wt, dedi_wt, cap_hour)
       @employee_name = name
       @team = t
@@ -115,10 +116,12 @@ module CapHourCalculationHelper
   class Date_container
     LIMIT = 7.6
     attr_accessor :date, :cap
+
     def initialize(date)
       @date = date
       @cap = 0
     end
+
     def is_full
       if :cap == LIMIT
         true
@@ -126,6 +129,7 @@ module CapHourCalculationHelper
         false
       end
     end
+
     def fill(part)
       if (@cap + part) >= LIMIT
         intake = LIMIT - @cap
