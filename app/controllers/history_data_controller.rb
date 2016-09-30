@@ -1,3 +1,5 @@
+include DataSerializer
+
 class HistoryDataController < ApplicationController
   before_action :set_history_datum, only: [:show, :edit, :update, :destroy]
 

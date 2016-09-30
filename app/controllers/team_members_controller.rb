@@ -6,7 +6,7 @@ class TeamMembersController < ApplicationController
   def index
     #@teams = Team.order('id ASC').all
     @columns = ['id', 'team_id', 'employee_id', 'dedication_weight']
-    @team_members = TeamMember.order('id ASC').paginate(
+    @team_members = TeamMember.order(:team_id).paginate(
         :page => params[:page],
         :per_page => params[:rows])
     if request.xhr?

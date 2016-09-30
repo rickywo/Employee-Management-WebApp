@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160921043339) do
   end
 
   create_table "iterations", force: :cascade do |t|
+    t.string   "name"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "work_day"

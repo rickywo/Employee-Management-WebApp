@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @columns = ['id', 'team_id', 'name', 'status', 'is_capitalizable', 'weight', 'release_date', 'description']
-    @projects = Project.order('id ASC').paginate(
+    @projects = Project.order(:team_id).paginate(
         :page => params[:page],
         :per_page => params[:rows])
     if request.xhr?

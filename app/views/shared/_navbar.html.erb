@@ -9,7 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<%= root_path %>">Redbubble</a>
-      <p class="navbar-text"><%= current_iteration.start_date.strftime('%d/%m/%Y') %> - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p>
+      <p class="navbar-text"><a href="/home/show?opr=previous_iteration"> << </a></p>
+      <p class="navbar-text"><%= current_iteration.name %> ( <%= current_iteration.start_date.strftime('%d-%b') %> to <%= current_iteration.end_date.strftime('%d-%b') %> )</p>
+      <p class="navbar-text"><a href="/home/show?opr=next_iteration"> >> </a></p>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

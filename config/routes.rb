@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   root to: 'home#show'
   post 'home/copy_iteration_data'
   post 'home/save_data'
+  post 'home/load_project_csv'
   get '/cap_hour_calculation', to: 'cap_hour_calculation#index'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
