@@ -1,4 +1,5 @@
 require 'project_csv_loader'
+require 'employee_csv_loader'
 
 class HomeController < ApplicationController
   include DataSerializer
@@ -34,6 +35,12 @@ class HomeController < ApplicationController
     file = params[:file].read
     #print1
     ProjectCSVLoader.new(file)
+  end
+
+  def load_employee_csv
+    file = params[:file].read
+    #print1
+    EmployeeCsvLoader.new(file)
   end
 
   def save_data

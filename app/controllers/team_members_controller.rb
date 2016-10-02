@@ -1,3 +1,4 @@
+include TeamMembersHelper
 class TeamMembersController < ApplicationController
   before_action :set_team_member, only: [:show, :edit, :update, :destroy]
 
@@ -68,6 +69,13 @@ class TeamMembersController < ApplicationController
 
     if request.xhr?
       render :json => @team_member
+    end
+  end
+
+  def employee_structure
+    @data = teammember_matrix
+    @data['matrix'].each do |r|
+      p r
     end
   end
 

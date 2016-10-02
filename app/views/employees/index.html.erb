@@ -26,7 +26,7 @@
       editurl: '/employees/update',
       datatype: "json",
       mtype: 'GET',
-      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Work Type', 'Rate ($)', 'Location', 'Group','Start Date', 'End Date'],
+      colNames: ['ID#', 'Name', 'Title', 'Status', 'Type', 'Work Type', 'Rate ($)', 'Location', 'Group', 'Leave Days','Start Date', 'End Date'],
       colModel: [
         {
           name: "id",
@@ -88,15 +88,21 @@
           formatter: 'select',
           editable: true
         },{
+          name: 'leave_days',
+          index: "leave_days",
+          width: (pageWidth*(10/100)),
+          align: "right",
+          editable: true
+        },{
           name: 'commencement_date',
           index: "commencement_date",
-          width: (pageWidth*(15/100)),
+          width: (pageWidth*(10/100)),
           align: "right",
           editable: true
         },{
           name: 'termination_date',
           index: "termination_date",
-          width: (pageWidth*(15/100)),
+          width: (pageWidth*(10/100)),
           align: "right",
           editable: true
         }

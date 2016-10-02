@@ -22,7 +22,13 @@
         <li><%= link_to "Employees" , employees_path %></li>
         <li><%= link_to "Iterations" , iterations_path %></li>
         <li><%= link_to "Groups" , capitalizable_groups_path %></li>
-        <li><%= link_to "Team Members" , team_members_path %></li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Member Management <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Team Members" , team_members_path %></li>
+            <li><%= link_to "Employee Allocation" , employee_structure_path %></li>
+          </ul>
+        </li>
         <li><%= link_to "Capitalization" , cap_hour_calculation_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->

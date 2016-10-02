@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160921043339) do
     t.integer  "employment_type"
     t.float    "hourly_rate"
     t.integer  "location"
+    t.integer  "leave_days"
     t.integer  "capitalizable_group_id"
     t.datetime "commencement_date"
     t.datetime "termination_date"
@@ -67,14 +68,6 @@ ActiveRecord::Schema.define(version: 20160921043339) do
     t.index ["iteration_id"], name: "index_history_data_on_iteration_id", using: :btree
   end
 
-  create_table "iteration_attendances", force: :cascade do |t|
-    t.integer  "iteration_id"
-    t.integer  "employee_id"
-    t.integer  "leave_days"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "iterations", force: :cascade do |t|
     t.string   "name"
     t.datetime "start_date"
@@ -82,13 +75,6 @@ ActiveRecord::Schema.define(version: 20160921043339) do
     t.integer  "work_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "project_iterations", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "iteration_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -138,10 +124,6 @@ ActiveRecord::Schema.define(version: 20160921043339) do
   add_foreign_key "employees", "attendance_types"
   add_foreign_key "employees", "capitalizable_groups"
   add_foreign_key "history_data", "iterations"
-  add_foreign_key "iteration_attendances", "employees"
-  add_foreign_key "iteration_attendances", "iterations"
-  add_foreign_key "project_iterations", "iterations"
-  add_foreign_key "project_iterations", "projects"
   add_foreign_key "projects", "teams"
   add_foreign_key "team_members", "employees"
   add_foreign_key "team_members", "teams"

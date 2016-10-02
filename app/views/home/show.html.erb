@@ -41,14 +41,14 @@
         </div>
         <div class="col-sm-4">
           <div class="col-sm-6">
-
-            <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
-            <button type="button" class="btn btn-success upload-member-btn">
-              Upload Employee CSV
-            </button>
-
           </div>
-          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
+            <%= form_tag home_load_employee_csv_path, :multipart => true do %>
+                <%= file_field_tag :file, :accept => "text/csv" %>
+                <%= submit_tag "Upload" %>
+            <% end %>
+          </div>
 
 
         </div>
@@ -78,65 +78,6 @@
             Proceed
           </button>
         </div>-->
-      </div>
-    </div>
-  </div>
-  <div class="bs-docs-section">
-    <div class="bs-callout bs-callout-warning">
-      <div class="row">
-        <div class="col-sm-12">
-          <label>
-            Copy data from Iteration A to Iteration B
-          </label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="col-sm-2 text-right"><p>From </p></div>
-          <div class="col-sm-2">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle from-btn" type="button" data-toggle="dropdown"><%= current_iteration.name%></button>
-              <ul class="dropdown-menu from-id">
-                <% Iteration.order('start_date ASC').all.each do |iteration| %>
-                    <li>
-                      <a><%= iteration.name%> |  <%= iteration.start_date.strftime('%d/%m/%Y')%> - <%=iteration.end_date.strftime('%d/%m/%Y')%></a>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-8 text-right"><p id="from-iter-label"><%= current_iteration.start_date.strftime('%d/%m/%Y') %>
-            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p></div>
-        </div>
-        <div class="col-sm-4">
-          <div class="col-sm-2 text-right"><p>to </p></div>
-          <div class="col-sm-2">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle to-btn" type="button" data-toggle="dropdown"><%= current_iteration.name%></button>
-              <ul class="dropdown-menu  to-id">
-                <% Iteration.order('start_date ASC').all.each do |iteration| %>
-                    <li>
-                      <a><%= iteration.name%> |  <%= iteration.start_date.strftime('%d/%m/%Y')%> - <%=iteration.end_date.strftime('%d/%m/%Y')%></a>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-8 text-right"><p id="to-iter-label"><%= current_iteration.start_date.strftime('%d/%m/%Y') %>
-            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p></div>
-        </div>
-        <div class="col-sm-4">
-          <div class="col-sm-6"></div>
-          <div class="col-sm-6">
-
-              <!-- <a href="/cap_hour_calculation.csv?iteration_id="> -->
-              <button type="button" class="btn btn-success copy-btn">
-                Copy
-              </button>
-
-          </div>
-
-        </div>
       </div>
     </div>
   </div>

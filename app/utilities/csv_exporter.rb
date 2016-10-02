@@ -8,6 +8,7 @@ module CsvExporter
   # +hourly_rate_format+ is the string of date format, default is '%.2f'.
 
   def result_to_csv(header,
+                    data,
                     project_full_name_prefix_array,
                     date_format,
                     hour_format,
@@ -21,7 +22,7 @@ module CsvExporter
 
     CSV.generate do |csv|
       csv << header
-      @result.each do |row|
+      data.each do |row|
         full_project_name = project_full_name_prefix_array[row.location - 1] + ' : ' + row.project
         employee_name = row.employee_name.to_s
         date = row.date.strftime(date_format)

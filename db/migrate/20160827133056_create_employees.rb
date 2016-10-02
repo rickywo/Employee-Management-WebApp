@@ -10,6 +10,7 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.float :hourly_rate
       # 1: AU 2: LA
       t.integer :location
+      t.integer :leave_days
       t.integer :capitalizable_group_id
       t.datetime :commencement_date
       t.datetime :termination_date

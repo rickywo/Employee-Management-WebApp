@@ -5,11 +5,9 @@ module DataSerializer
 
     @container = IterationDataContainer.new(
         encode_obj_arr_2_jstring_arr(TeamMember.all),
-        encode_obj_arr_2_jstring_arr(IterationAttendance.all),
         encode_obj_arr_2_jstring_arr(Employee.all),
         encode_obj_arr_2_jstring_arr(CapitalizableGroup.all),
         encode_obj_arr_2_jstring_arr(AttendanceType.all),
-        encode_obj_arr_2_jstring_arr(ProjectIteration.all),
         encode_obj_arr_2_jstring_arr(Project.all),
         encode_obj_arr_2_jstring_arr(Team.all)
     )
@@ -62,11 +60,9 @@ module DataSerializer
       @container = JSON.parse(json_c)
       teams = @container["data"]["teams"]
       projects = @container["data"]["projects"]
-      project_iterations = @container["data"]["project_iterations"]
       attendance_types = @container["data"]["attendance_types"]
       capitalizable_groups = @container["data"]["capitalizable_groups"]
       employees = @container["data"]["employees"]
-      iteration_attendances = @container["data"]["iteration_attendances"]
       team_members = @container["data"]["team_members"]
       teams.each do |team|
         t = Team.new
@@ -76,11 +72,6 @@ module DataSerializer
       projects.each do |project|
         t = Project.new
         t.from_json(project)
-        t.save
-      end
-      project_iterations.each do |pi|
-        t = ProjectIteration.new
-        t.from_json(pi)
         t.save
       end
       attendance_types.each do |at|
@@ -96,11 +87,6 @@ module DataSerializer
       employees.each do |e|
         t = Employee.new
         t.from_json(e)
-        t.save
-      end
-      iteration_attendances.each do |ia|
-        t = IterationAttendance.new
-        t.from_json(ia)
         t.save
       end
       team_members.each do |tm|
@@ -124,51 +110,42 @@ module DataSerializer
 
   def clean_db
     TeamMember.delete_all
-    IterationAttendance.delete_all
     Employee.delete_all
-    CapitalizableGroup.delete_all
     AttendanceType.delete_all
-    ProjectIteration.delete_all
     Project.delete_all
     Team.delete_all
   end
 
   private
   class IterationDataContainer
-    def initialize(members, attendances, employees, groups, types, p_iterations, projects, teams)
+    def initialize(members, employees, groups, types, projects, teams)
       @team_members = members
-      @iteration_attendances = attendances
       @employees = employees
       @capitalizable_groups = groups
       @attendance_types = types
-      @project_iterations = p_iterations
       @projects = projects
       @teams = teams
     end
 
     def to_json(*a)
       {
-          "json_class" => self.class.name,
-          "data" => {"team_members" => @team_members,
-                     "iteration_attendances" => @iteration_attendances,
-                     "employees" => @employees,
-                     "capitalizable_groups" => @capitalizable_groups,
-                     "attendance_types" => @attendance_types,
-                     "project_iterations" => @project_iterations,
-                     "projects" => @projects,
-                     "teams" => @teams}
+          'json_class' => self.class.name,
+          'data' => {'team_members' => @team_members,
+                     'employees' => @employees,
+                     'capitalizable_groups' => @capitalizable_groups,
+                     'attendance_types' => @attendance_types,
+                     'projects' => @projects,
+                     'teams' => @teams}
       }.to_json(*a)
     end
 
     def self.json_create(o)
-      new(o["data"]["team_members"],
-          o["data"]["iteration_attendances"],
-          o["data"]["employees"],
-          o["data"]["capitalizable_groups"],
-          o["data"]["attendance_types"],
-          o["data"]["project_iterations"],
-          o["data"]["projects"],
-          o["data"]["teams"])
+      new(o['data']['team_members'],
+          o['data']['employees'],
+          o['data']['capitalizable_groups'],
+          o['data']['attendance_types'],
+          o['data']['projects'],
+          o['data']['teams'])
     end
   end
 end

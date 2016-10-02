@@ -1,3 +1,43 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+li.el {
+  list-style: none;
+  background: #d6ad28;
+  height: 25px;
+  width: 100px;
+  margin-left: -15px;
+  margin-top: 0px;
+  text-align:center;
+}
+
+.placeholder {
+  height: 25px;
+  background: #fff7db;
+  width: 100px;
+  margin-left: -15px;
+  margin-top: 0px;
+}
+
+ul.header {
+  background: lightblue;
+  float: left;
+  margin-right: 2px;
+  height: 100px;
+  width: 100px;
+  font-size: 0.6em;
+  text-align:center;
+}
+
+ul.container {
+  list-style: none;
+  background: #b3b3b3;
+  float: left;
+  margin-right: 2px;
+  height: 25px;
+  width: 100px;
+  font-size: 0.6em;
+}

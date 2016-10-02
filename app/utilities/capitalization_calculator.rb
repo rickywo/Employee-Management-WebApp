@@ -5,8 +5,13 @@ module CapitalizationCalculator
   # dedication_rate: the dedication rate of an employee in a team
   # project_weight: the weight of project of a specific team
 
-  def calculate_capitalized_hour(work_days, capitalizable_rate, attendance_rate, dedication_rate, project_weight)
-    return work_days * 7.6 * (capitalizable_rate/100.0) * (attendance_rate/100.0) * (dedication_rate/100.0) * (project_weight/100.0)
+  def calculate_capitalized_hour(work_days, leave_days, capitalizable_rate, attendance_rate, dedication_rate, project_weight)
+    total_days = work_days
+    if leave_days != nil
+      total_days = (total_days - leave_days)
+    end
+    total_hours = total_days * 7.6
+    total_hours * (capitalizable_rate/100.0) * (attendance_rate/100.0) * dedication_rate * (project_weight/100.0)
   end
 
   #result = calculate_capitalized_hour 10, 100, 100, 100, 0.5
@@ -24,15 +29,24 @@ module CapitalizationCalculator
   # @param [Object] iteration
   def get_result_rows(iteration)
     @result = []
-    @employees.each do |employee|
+    Employee.all.each do |employee|
+
+      # Skip employee who is not active
+      next unless employee.status
       dca = []
       for i in 0..4 do
         dca.append(Date_container.new(iteration.start_date + i.days))
       end
       employee.team_members.each do |team_member|
+        dedication_weight = team_member.dedication_weight.to_f
+        if dedication_weight == 0 || dedication_weight == nil
+          p dedication_weight = get_num_proj_of_team(team_member.team.id, true, true).to_f / get_num_proj_of_employee(employee.name).to_f
+        else
+          dedication_weight /= 100.0
+        end
         team_member.team.projects.each do |project|
-          if project.is_capitalizable
-            result = calculate_capitalized_hour iteration.work_day, employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, team_member.dedication_weight, project.weight
+          if project.is_capitalizable && project.weight > 0
+            result = calculate_capitalized_hour iteration.work_day, employee.leave_days , employee.capitalizable_group.capitalizable_rate, employee.attendance_type.attendance_rate, dedication_weight, project.weight
             #p employee.name
             (0..4).each { |i|
               intake = dca[i].fill(result.to_f)
@@ -82,8 +96,18 @@ module CapitalizationCalculator
       @project = p
       @date = d
       @employee_type = type
-      @hourly_rate = rate
-      @location = loc
+      if rate ==nil
+        @hourly_rate = 0
+      else
+        @hourly_rate = rate
+      end
+
+      if loc == nil
+        @location = 1
+      else
+        @location = loc
+      end
+
       @cap_weight = cap_wt
       @dedication_weight = dedi_wt
       @cap_hour = cap_hour

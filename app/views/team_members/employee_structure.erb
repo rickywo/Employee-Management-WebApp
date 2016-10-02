@@ -1,0 +1,78 @@
+
+<div class="container bs-docs-container">
+
+  <h2>Employee Allocation</h2>
+
+  <div id="member_table"></div>
+</div>
+
+
+<script>
+
+
+  $(function() {
+
+
+
+
+
+
+    var table = $('<div></div>');
+    var row = $('<tr></tr>').addClass('bar');
+
+    <% @data['header'].each do |col| %>
+    var col = $('<td></td>').addClass('foo');
+    var el = $('<ul></ul>').addClass('header').text('<%= col.html_safe %>');
+    col.append(el);
+    row.append(col);
+    <% end %>
+    table.append(row);
+
+    <% @data['matrix'].each do |row| %>
+    var row = $('<tr></tr>').addClass('bar');
+    <% row.each do |col|%>
+    var col = $('<td></td>').addClass('foo');
+    var el = $('<ul></ul>').addClass('container connect_lists ui-sortable');
+    <% if col != nil %>
+    var li = $('<li></li>').addClass('el').html('<%= col %>');
+    el.append(li);
+    <% end %>
+    col.append(el);
+    row.append(col);
+    <% end %>
+    table.append(row);
+    <% end %>
+
+    $('#member_table').append(table);
+    $('.container,ul').sortable({
+      placeholder: 'placeholder',
+      connectWith: '.connect_lists',
+      receive: function(event, ui) {
+        var $this = $(this);
+        if ($this.children('li').length > 1 && $this.attr('id') != "main_list") {
+          console.log('Only one per list!');
+          $(ui.sender).sortable('cancel');
+        }
+      }
+    });
+
+
+
+  });
+
+  $(document).ready(function(){
+    $(".el").hover(function(){
+      var name = $(this).text();
+      var selector = '.el:contains(' + name + ')';
+      $(selector).css( "background", "#FFC0CB" )
+    }).mouseout(function () {
+      var name = $(this).text();
+      var selector = '.el:contains(' + name + ')';
+      $(selector).css( "background", "#d6ad28" )
+    })
+    ;
+  });
+
+</script>
+
+<br style="clear:both">

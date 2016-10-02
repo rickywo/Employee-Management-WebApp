@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   resource :home, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#show'
+  get 'employee_structure', to: 'team_members#employee_structure'
+  get 'welcome', to: 'welcome#index'
   post 'home/copy_iteration_data'
   post 'home/save_data'
   post 'home/load_project_csv'
+  post 'home/load_employee_csv'
   get '/cap_hour_calculation', to: 'cap_hour_calculation#index'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

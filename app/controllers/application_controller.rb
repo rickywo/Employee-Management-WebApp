@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       Iteration.find(work_iteration.value)
     else
       if Iteration.count == 0
-        iteration_name = Date.now.strftime('%y-%W')
+        iteration_name = Date.today.strftime('%y-%W')
         iteration = get_iteration_by_name(iteration_name)
       else
         iteration = Iteration.first
@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
       State.create(state: WORK_ITERATION, value: iteration.id)
       iteration
     end
-
   end
 
   def set_current_iteration(iteration_id)
