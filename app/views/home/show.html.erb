@@ -3,28 +3,14 @@
     <div class="bs-callout bs-callout-warning">
       <div class="row">
         <div class="col-sm-12">
-          <label>
-            Load data from csv to Iteration
-          </label>
+
         </div>
       </div>
       <div class="row">
         <div class="col-sm-4">
-          <div class="col-sm-2 text-right"><p>To </p></div>
-          <div class="col-sm-2">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle load-csv-to-btn" type="button" data-toggle="dropdown"><%= current_iteration.name %></button>
-              <ul class="dropdown-menu csv-to-drop">
-                <% Iteration.order('start_date ASC').all.each do |iteration| %>
-                    <li>
-                      <a><%= iteration.name%> |  <%= iteration.start_date.strftime('%d/%m/%Y')%> - <%=iteration.end_date.strftime('%d/%m/%Y')%></a>
-                    </li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-8 text-right"><p id="csv-to-label"><%= current_iteration.start_date.strftime('%d/%m/%Y') %>
-            - <%= current_iteration.end_date.strftime('%d/%m/%Y') %></p></div>
+          <label>
+            Load data from csv to current Iteration
+          </label>
         </div>
         <div class="col-sm-4">
           <div class="col-sm-6"></div>

@@ -35,12 +35,14 @@ class HomeController < ApplicationController
     file = params[:file].read
     #print1
     ProjectCSVLoader.new(file)
+    save_iteration_data(current_iteration.id)
   end
 
   def load_employee_csv
     file = params[:file].read
     #print1
     EmployeeCsvLoader.new(file)
+    save_iteration_data(current_iteration.id)
   end
 
   def save_data
