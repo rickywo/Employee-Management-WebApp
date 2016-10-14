@@ -123,4 +123,12 @@ module ModelFacade
     p num_project
   end
 
+  def contains_data(iteration_id)
+    @history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
+    if @history_datum != nil
+      true
+    end
+    false
+  end
+
 end

@@ -52,8 +52,11 @@ module DataSerializer
 
   end
 
-  def restore_iteration_data(iteration_id)
-    clean_db
+  def restore_iteration_data(iteration_id, with_deletion = true)
+    if with_deletion
+      clean_db
+    end
+
     @history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
     if @history_datum != nil
       json_c = HistoryDatum.first.iteration_data
