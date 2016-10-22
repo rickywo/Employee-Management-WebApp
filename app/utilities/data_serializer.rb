@@ -59,7 +59,7 @@ module DataSerializer
 
     @history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
     if @history_datum != nil
-      json_c = HistoryDatum.first.iteration_data
+      json_c = @history_datum.iteration_data
       @container = JSON.parse(json_c)
       teams = @container["data"]["teams"]
       projects = @container["data"]["projects"]
