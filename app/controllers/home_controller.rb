@@ -19,11 +19,15 @@ class HomeController < ApplicationController
         iteration_id = params[:iteration_id]
     end
     if iteration_id != nil
+      p iteration_id
+      p contains_data(iteration_id)
       if contains_data(iteration_id)
         restore_iteration_data(iteration_id)
+        p 'restore'
       else
         data = get_iteration_data_by_id(current_iteration.id)
         save_iteration_data_by_id(iteration_id, data)
+        p 'copy'
       end
     set_current_iteration(iteration_id)
     end

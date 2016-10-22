@@ -124,11 +124,12 @@ module ModelFacade
   end
 
   def contains_data(iteration_id)
+    is_contains = false
     @history_datum = HistoryDatum.where(:iteration_id => iteration_id).take
     if @history_datum != nil
-      true
+      is_contains = true
     end
-    false
+    is_contains
   end
 
 end

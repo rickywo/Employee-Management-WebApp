@@ -16,7 +16,7 @@ module DataSerializer
     if @history_datum == nil
       @history_datum = HistoryDatum.create(iteration_id: iteration_id, iteration_data: @container.to_json)
     else
-      @history_datum = HistoryDatum.update(iteration_id: iteration_id, iteration_data: @container.to_json)
+      @history_datum.update(iteration_id: iteration_id, iteration_data: @container.to_json)
     end
 
   end
@@ -26,7 +26,7 @@ module DataSerializer
     if history_datum == nil
       HistoryDatum.create(iteration_id: iteration_id, iteration_data: data)
     else
-      HistoryDatum.update(iteration_id: iteration_id, iteration_data: data)
+      history_datum.update(iteration_id: iteration_id, iteration_data: data)
     end
   end
 
@@ -117,6 +117,7 @@ module DataSerializer
     AttendanceType.delete_all
     Project.delete_all
     Team.delete_all
+    CapitalizableGroup.delete_all
   end
 
   private

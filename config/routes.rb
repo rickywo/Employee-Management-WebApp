@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :students
   resources :history_data
   resources :capitalization_results
   resources :attendance_types

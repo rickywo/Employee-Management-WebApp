@@ -28,747 +28,750 @@
       <database id="7" name="cap_web_app_test">
         <object-id>35821</object-id>
       </database>
-      <schema id="8" parent="6" name="public">
+      <database id="8" name="cap_web_app_production">
+        <object-id>36002</object-id>
+      </database>
+      <schema id="9" parent="6" name="public">
         <object-id>2200</object-id>
         <visible>1</visible>
         <introspection-state-number>21631</introspection-state-number>
         <introspection-timestamp>2016-10-17.22:11:09.207</introspection-timestamp>
       </schema>
-      <schema id="9" parent="6" name="pg_catalog">
+      <schema id="10" parent="6" name="pg_catalog">
         <object-id>11</object-id>
       </schema>
-      <schema id="10" parent="6" name="pg_toast">
+      <schema id="11" parent="6" name="pg_toast">
         <object-id>99</object-id>
       </schema>
-      <schema id="11" parent="6" name="pg_temp_1">
+      <schema id="12" parent="6" name="pg_temp_1">
         <object-id>11816</object-id>
       </schema>
-      <schema id="12" parent="6" name="pg_toast_temp_1">
+      <schema id="13" parent="6" name="pg_toast_temp_1">
         <object-id>11817</object-id>
       </schema>
-      <schema id="13" parent="6" name="information_schema">
+      <schema id="14" parent="6" name="information_schema">
         <object-id>12349</object-id>
       </schema>
-      <sequence id="14" parent="8" name="attendance_types_id_seq">
+      <sequence id="15" parent="9" name="attendance_types_id_seq">
         <object-id>35948</object-id>
         <state-number>21422</state-number>
       </sequence>
-      <sequence id="15" parent="8" name="capitalizable_groups_id_seq">
+      <sequence id="16" parent="9" name="capitalizable_groups_id_seq">
         <object-id>35871</object-id>
         <state-number>21415</state-number>
       </sequence>
-      <sequence id="16" parent="8" name="capitalization_results_id_seq">
+      <sequence id="17" parent="9" name="capitalization_results_id_seq">
         <object-id>35838</object-id>
         <state-number>21419</state-number>
       </sequence>
-      <sequence id="17" parent="8" name="employees_id_seq">
+      <sequence id="18" parent="9" name="employees_id_seq">
         <object-id>35901</object-id>
         <state-number>21418</state-number>
       </sequence>
-      <sequence id="18" parent="8" name="history_data_id_seq">
+      <sequence id="19" parent="9" name="history_data_id_seq">
         <object-id>35965</object-id>
         <state-number>21424</state-number>
       </sequence>
-      <sequence id="19" parent="8" name="iterations_id_seq">
+      <sequence id="20" parent="9" name="iterations_id_seq">
         <object-id>35860</object-id>
         <state-number>21414</state-number>
       </sequence>
-      <sequence id="20" parent="8" name="projects_id_seq">
+      <sequence id="21" parent="9" name="projects_id_seq">
         <object-id>35882</object-id>
         <state-number>21416</state-number>
       </sequence>
-      <sequence id="21" parent="8" name="students_id_seq">
+      <sequence id="22" parent="9" name="students_id_seq">
         <object-id>35990</object-id>
         <state-number>21631</state-number>
       </sequence>
-      <sequence id="22" parent="8" name="team_members_id_seq">
+      <sequence id="23" parent="9" name="team_members_id_seq">
         <object-id>35893</object-id>
         <state-number>21417</state-number>
       </sequence>
-      <sequence id="23" parent="8" name="teams_id_seq">
+      <sequence id="24" parent="9" name="teams_id_seq">
         <object-id>35849</object-id>
         <state-number>21413</state-number>
       </sequence>
-      <sequence id="24" parent="8" name="users_id_seq">
+      <sequence id="25" parent="9" name="users_id_seq">
         <object-id>35937</object-id>
         <state-number>21421</state-number>
       </sequence>
-      <table id="25" parent="8" name="ar_internal_metadata">
+      <table id="26" parent="9" name="ar_internal_metadata">
         <object-id>35830</object-id>
         <state-number>21411</state-number>
       </table>
-      <table id="26" parent="8" name="attendance_types">
+      <table id="27" parent="9" name="attendance_types">
         <object-id>35950</object-id>
         <state-number>21423</state-number>
       </table>
-      <table id="27" parent="8" name="capitalizable_groups">
+      <table id="28" parent="9" name="capitalizable_groups">
         <object-id>35873</object-id>
         <state-number>21420</state-number>
       </table>
-      <table id="28" parent="8" name="capitalization_results">
+      <table id="29" parent="9" name="capitalization_results">
         <object-id>35840</object-id>
         <state-number>21420</state-number>
       </table>
-      <table id="29" parent="8" name="employees">
+      <table id="30" parent="9" name="employees">
         <object-id>35903</object-id>
         <state-number>21423</state-number>
       </table>
-      <table id="30" parent="8" name="history_data">
+      <table id="31" parent="9" name="history_data">
         <object-id>35967</object-id>
         <state-number>21425</state-number>
       </table>
-      <table id="31" parent="8" name="iterations">
+      <table id="32" parent="9" name="iterations">
         <object-id>35862</object-id>
         <state-number>21425</state-number>
       </table>
-      <table id="32" parent="8" name="projects">
+      <table id="33" parent="9" name="projects">
         <object-id>35884</object-id>
         <state-number>21420</state-number>
       </table>
-      <table id="33" parent="8" name="schema_migrations">
+      <table id="34" parent="9" name="schema_migrations">
         <object-id>35822</object-id>
         <state-number>21410</state-number>
       </table>
-      <table id="34" parent="8" name="states">
+      <table id="35" parent="9" name="states">
         <object-id>35982</object-id>
         <state-number>21426</state-number>
       </table>
-      <table id="35" parent="8" name="students">
+      <table id="36" parent="9" name="students">
         <object-id>35992</object-id>
         <state-number>21631</state-number>
       </table>
-      <table id="36" parent="8" name="team_members">
+      <table id="37" parent="9" name="team_members">
         <object-id>35895</object-id>
         <state-number>21420</state-number>
       </table>
-      <table id="37" parent="8" name="teams">
+      <table id="38" parent="9" name="teams">
         <object-id>35851</object-id>
         <state-number>21420</state-number>
       </table>
-      <table id="38" parent="8" name="users">
+      <table id="39" parent="9" name="users">
         <object-id>35939</object-id>
         <state-number>21421</state-number>
       </table>
-      <column id="39" parent="25" name="key">
+      <column id="40" parent="26" name="key">
         <state-number>21411</state-number>
         <mandatory>1</mandatory>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="40" parent="25" name="value">
+      <column id="41" parent="26" name="value">
         <state-number>21411</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="41" parent="25" name="created_at">
+      <column id="42" parent="26" name="created_at">
         <state-number>21411</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="42" parent="25" name="updated_at">
+      <column id="43" parent="26" name="updated_at">
         <state-number>21411</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="43" parent="25" name="ar_internal_metadata_pkey">
+      <index id="44" parent="26" name="ar_internal_metadata_pkey">
         <object-id>35836</object-id>
         <columns>key</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="44" parent="25" name="ar_internal_metadata_pkey">
+      <key id="45" parent="26" name="ar_internal_metadata_pkey">
         <object-id>35837</object-id>
         <columns>key</columns>
         <underlying-index>ar_internal_metadata_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="45" parent="26" name="id">
+      <column id="46" parent="27" name="id">
         <state-number>21422</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;attendance_types_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="46" parent="26" name="name">
+      <column id="47" parent="27" name="name">
         <state-number>21422</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="47" parent="26" name="attendance_rate">
+      <column id="48" parent="27" name="attendance_rate">
         <state-number>21422</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="48" parent="26" name="description">
+      <column id="49" parent="27" name="description">
         <state-number>21422</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="49" parent="26" name="created_at">
+      <column id="50" parent="27" name="created_at">
         <state-number>21422</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="50" parent="26" name="updated_at">
+      <column id="51" parent="27" name="updated_at">
         <state-number>21422</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="51" parent="26" name="attendance_types_pkey">
+      <index id="52" parent="27" name="attendance_types_pkey">
         <object-id>35957</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="52" parent="26" name="attendance_types_pkey">
+      <key id="53" parent="27" name="attendance_types_pkey">
         <object-id>35958</object-id>
         <columns>id</columns>
         <underlying-index>attendance_types_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="53" parent="27" name="id">
+      <column id="54" parent="28" name="id">
         <state-number>21415</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;capitalizable_groups_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="54" parent="27" name="capitalizable_rate">
+      <column id="55" parent="28" name="capitalizable_rate">
         <state-number>21415</state-number>
         <data-type>double precision|0</data-type>
       </column>
-      <column id="55" parent="27" name="description">
+      <column id="56" parent="28" name="description">
         <state-number>21415</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="56" parent="27" name="created_at">
+      <column id="57" parent="28" name="created_at">
         <state-number>21415</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="57" parent="27" name="updated_at">
+      <column id="58" parent="28" name="updated_at">
         <state-number>21415</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="58" parent="27" name="capitalizable_groups_pkey">
+      <index id="59" parent="28" name="capitalizable_groups_pkey">
         <object-id>35880</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="59" parent="27" name="capitalizable_groups_pkey">
+      <key id="60" parent="28" name="capitalizable_groups_pkey">
         <object-id>35881</object-id>
         <columns>id</columns>
         <underlying-index>capitalizable_groups_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="60" parent="28" name="id">
+      <column id="61" parent="29" name="id">
         <state-number>21412</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;capitalizations_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="61" parent="28" name="project_name">
+      <column id="62" parent="29" name="project_name">
         <state-number>21412</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="62" parent="28" name="employee_name">
+      <column id="63" parent="29" name="employee_name">
         <state-number>21412</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="63" parent="28" name="date">
+      <column id="64" parent="29" name="date">
         <state-number>21412</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="64" parent="28" name="hours">
+      <column id="65" parent="29" name="hours">
         <state-number>21412</state-number>
         <data-type>double precision|0</data-type>
       </column>
-      <column id="65" parent="28" name="full_project_name">
+      <column id="66" parent="29" name="full_project_name">
         <state-number>21412</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="66" parent="28" name="hourly_rate">
+      <column id="67" parent="29" name="hourly_rate">
         <state-number>21412</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="67" parent="28" name="iteration_id">
+      <column id="68" parent="29" name="iteration_id">
         <state-number>21412</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="68" parent="28" name="created_at">
+      <column id="69" parent="29" name="created_at">
         <state-number>21412</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="69" parent="28" name="updated_at">
+      <column id="70" parent="29" name="updated_at">
         <state-number>21412</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="70" parent="28" name="capitalization_results_pkey">
+      <index id="71" parent="29" name="capitalization_results_pkey">
         <object-id>35847</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="71" parent="28" name="capitalization_results_pkey">
+      <key id="72" parent="29" name="capitalization_results_pkey">
         <object-id>35848</object-id>
         <columns>id</columns>
         <underlying-index>capitalization_results_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="72" parent="28" name="fk_rails_d9f6804f6f">
+      <foreign-key id="73" parent="29" name="fk_rails_d9f6804f6f">
         <object-id>35927</object-id>
         <columns>iteration_id</columns>
         <ref-key>~.iterations.iterations_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="73" parent="29" name="id">
+      <column id="74" parent="30" name="id">
         <state-number>21418</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;employees_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="74" parent="29" name="name">
+      <column id="75" parent="30" name="name">
         <state-number>21418</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="75" parent="29" name="title">
+      <column id="76" parent="30" name="title">
         <state-number>21418</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="76" parent="29" name="status">
+      <column id="77" parent="30" name="status">
         <state-number>21418</state-number>
         <data-type>boolean|0</data-type>
       </column>
-      <column id="77" parent="29" name="employment_type">
+      <column id="78" parent="30" name="employment_type">
         <state-number>21418</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="78" parent="29" name="hourly_rate">
+      <column id="79" parent="30" name="hourly_rate">
         <state-number>21418</state-number>
         <data-type>double precision|0</data-type>
       </column>
-      <column id="79" parent="29" name="location">
+      <column id="80" parent="30" name="location">
         <state-number>21418</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="80" parent="29" name="leave_days">
+      <column id="81" parent="30" name="leave_days">
         <state-number>21418</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="81" parent="29" name="capitalizable_group_id">
+      <column id="82" parent="30" name="capitalizable_group_id">
         <state-number>21418</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="82" parent="29" name="commencement_date">
+      <column id="83" parent="30" name="commencement_date">
         <state-number>21418</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="83" parent="29" name="termination_date">
+      <column id="84" parent="30" name="termination_date">
         <state-number>21418</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="84" parent="29" name="created_at">
+      <column id="85" parent="30" name="created_at">
         <state-number>21418</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="85" parent="29" name="updated_at">
+      <column id="86" parent="30" name="updated_at">
         <state-number>21418</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="86" parent="29" name="attendance_type_id">
+      <column id="87" parent="30" name="attendance_type_id">
         <state-number>21423</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <index id="87" parent="29" name="employees_pkey">
+      <index id="88" parent="30" name="employees_pkey">
         <object-id>35910</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="88" parent="29" name="index_employees_on_attendance_type_id">
+      <index id="89" parent="30" name="index_employees_on_attendance_type_id">
         <object-id>35959</object-id>
         <columns>attendance_type_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="89" parent="29" name="employees_pkey">
+      <key id="90" parent="30" name="employees_pkey">
         <object-id>35911</object-id>
         <columns>id</columns>
         <underlying-index>employees_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="90" parent="29" name="fk_rails_9bde9d7f69">
+      <foreign-key id="91" parent="30" name="fk_rails_9bde9d7f69">
         <object-id>35932</object-id>
         <columns>capitalizable_group_id</columns>
         <ref-key>~.capitalizable_groups.capitalizable_groups_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="91" parent="29" name="fk_rails_2d44e482ed">
+      <foreign-key id="92" parent="30" name="fk_rails_2d44e482ed">
         <object-id>35960</object-id>
         <columns>attendance_type_id</columns>
         <ref-key>~.attendance_types.attendance_types_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="92" parent="30" name="id">
+      <column id="93" parent="31" name="id">
         <state-number>21424</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;history_data_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="93" parent="30" name="iteration_data">
+      <column id="94" parent="31" name="iteration_data">
         <state-number>21424</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="94" parent="30" name="result_data">
+      <column id="95" parent="31" name="result_data">
         <state-number>21424</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="95" parent="30" name="created_at">
+      <column id="96" parent="31" name="created_at">
         <state-number>21424</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="96" parent="30" name="updated_at">
+      <column id="97" parent="31" name="updated_at">
         <state-number>21424</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="97" parent="30" name="iteration_id">
+      <column id="98" parent="31" name="iteration_id">
         <state-number>21425</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <index id="98" parent="30" name="history_data_pkey">
+      <index id="99" parent="31" name="history_data_pkey">
         <object-id>35974</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="99" parent="30" name="index_history_data_on_iteration_id">
+      <index id="100" parent="31" name="index_history_data_on_iteration_id">
         <object-id>35976</object-id>
         <columns>iteration_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="100" parent="30" name="history_data_pkey">
+      <key id="101" parent="31" name="history_data_pkey">
         <object-id>35975</object-id>
         <columns>id</columns>
         <underlying-index>history_data_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="101" parent="30" name="fk_rails_19ed2ad69c">
+      <foreign-key id="102" parent="31" name="fk_rails_19ed2ad69c">
         <object-id>35977</object-id>
         <columns>iteration_id</columns>
         <ref-key>~.iterations.iterations_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="102" parent="31" name="id">
+      <column id="103" parent="32" name="id">
         <state-number>21414</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;iterations_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="103" parent="31" name="name">
+      <column id="104" parent="32" name="name">
         <state-number>21414</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="104" parent="31" name="start_date">
+      <column id="105" parent="32" name="start_date">
         <state-number>21414</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="105" parent="31" name="end_date">
+      <column id="106" parent="32" name="end_date">
         <state-number>21414</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="106" parent="31" name="work_day">
+      <column id="107" parent="32" name="work_day">
         <state-number>21414</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="107" parent="31" name="created_at">
+      <column id="108" parent="32" name="created_at">
         <state-number>21414</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="108" parent="31" name="updated_at">
+      <column id="109" parent="32" name="updated_at">
         <state-number>21414</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="109" parent="31" name="iterations_pkey">
+      <index id="110" parent="32" name="iterations_pkey">
         <object-id>35869</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="110" parent="31" name="iterations_pkey">
+      <key id="111" parent="32" name="iterations_pkey">
         <object-id>35870</object-id>
         <columns>id</columns>
         <underlying-index>iterations_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="111" parent="32" name="id">
+      <column id="112" parent="33" name="id">
         <state-number>21416</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;projects_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="112" parent="32" name="name">
+      <column id="113" parent="33" name="name">
         <state-number>21416</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="113" parent="32" name="status">
+      <column id="114" parent="33" name="status">
         <state-number>21416</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="114" parent="32" name="is_capitalizable">
+      <column id="115" parent="33" name="is_capitalizable">
         <state-number>21416</state-number>
         <data-type>boolean|0</data-type>
       </column>
-      <column id="115" parent="32" name="weight">
+      <column id="116" parent="33" name="weight">
         <state-number>21416</state-number>
         <data-type>double precision|0</data-type>
       </column>
-      <column id="116" parent="32" name="release_date">
+      <column id="117" parent="33" name="release_date">
         <state-number>21416</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="117" parent="32" name="description">
+      <column id="118" parent="33" name="description">
         <state-number>21416</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="118" parent="32" name="team_id">
+      <column id="119" parent="33" name="team_id">
         <state-number>21416</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="119" parent="32" name="created_at">
+      <column id="120" parent="33" name="created_at">
         <state-number>21416</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="120" parent="32" name="updated_at">
+      <column id="121" parent="33" name="updated_at">
         <state-number>21416</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="121" parent="32" name="projects_pkey">
+      <index id="122" parent="33" name="projects_pkey">
         <object-id>35891</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="122" parent="32" name="projects_pkey">
+      <key id="123" parent="33" name="projects_pkey">
         <object-id>35892</object-id>
         <columns>id</columns>
         <underlying-index>projects_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="123" parent="32" name="fk_rails_ecc227a0c2">
+      <foreign-key id="124" parent="33" name="fk_rails_ecc227a0c2">
         <object-id>35912</object-id>
         <columns>team_id</columns>
         <ref-key>~.teams.teams_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="124" parent="33" name="version">
+      <column id="125" parent="34" name="version">
         <state-number>21410</state-number>
         <mandatory>1</mandatory>
         <data-type>varchar|0</data-type>
       </column>
-      <index id="125" parent="33" name="schema_migrations_pkey">
+      <index id="126" parent="34" name="schema_migrations_pkey">
         <object-id>35828</object-id>
         <columns>version</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="126" parent="33" name="schema_migrations_pkey">
+      <key id="127" parent="34" name="schema_migrations_pkey">
         <object-id>35829</object-id>
         <columns>version</columns>
         <underlying-index>schema_migrations_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="127" parent="34" name="state">
+      <column id="128" parent="35" name="state">
         <state-number>21426</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="128" parent="34" name="value">
+      <column id="129" parent="35" name="value">
         <state-number>21426</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <index id="129" parent="34" name="index_states_on_state">
+      <index id="130" parent="35" name="index_states_on_state">
         <object-id>35988</object-id>
         <columns>state</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <column id="130" parent="35" name="id">
+      <column id="131" parent="36" name="id">
         <state-number>21631</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;students_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="131" parent="35" name="name">
+      <column id="132" parent="36" name="name">
         <state-number>21631</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="132" parent="35" name="address">
+      <column id="133" parent="36" name="address">
         <state-number>21631</state-number>
         <data-type>text|0</data-type>
       </column>
-      <column id="133" parent="35" name="created_at">
+      <column id="134" parent="36" name="created_at">
         <state-number>21631</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="134" parent="35" name="updated_at">
+      <column id="135" parent="36" name="updated_at">
         <state-number>21631</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="135" parent="35" name="students_pkey">
+      <index id="136" parent="36" name="students_pkey">
         <object-id>35999</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="136" parent="35" name="students_pkey">
+      <key id="137" parent="36" name="students_pkey">
         <object-id>36000</object-id>
         <columns>id</columns>
         <underlying-index>students_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="137" parent="36" name="id">
+      <column id="138" parent="37" name="id">
         <state-number>21417</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;team_members_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="138" parent="36" name="team_id">
+      <column id="139" parent="37" name="team_id">
         <state-number>21417</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="139" parent="36" name="employee_id">
+      <column id="140" parent="37" name="employee_id">
         <state-number>21417</state-number>
         <data-type>integer|0</data-type>
       </column>
-      <column id="140" parent="36" name="dedication_weight">
+      <column id="141" parent="37" name="dedication_weight">
         <state-number>21417</state-number>
         <data-type>double precision|0</data-type>
       </column>
-      <column id="141" parent="36" name="created_at">
+      <column id="142" parent="37" name="created_at">
         <state-number>21417</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="142" parent="36" name="updated_at">
+      <column id="143" parent="37" name="updated_at">
         <state-number>21417</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="143" parent="36" name="team_members_pkey">
+      <index id="144" parent="37" name="team_members_pkey">
         <object-id>35899</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="144" parent="36" name="team_members_pkey">
+      <key id="145" parent="37" name="team_members_pkey">
         <object-id>35900</object-id>
         <columns>id</columns>
         <underlying-index>team_members_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <foreign-key id="145" parent="36" name="fk_rails_194b5b076d">
+      <foreign-key id="146" parent="37" name="fk_rails_194b5b076d">
         <object-id>35922</object-id>
         <columns>team_id</columns>
         <ref-key>~.teams.teams_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="146" parent="36" name="fk_rails_1fe2517c5b">
+      <foreign-key id="147" parent="37" name="fk_rails_1fe2517c5b">
         <object-id>35917</object-id>
         <columns>employee_id</columns>
         <ref-key>~.employees.employees_pkey</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="147" parent="37" name="id">
+      <column id="148" parent="38" name="id">
         <state-number>21413</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;teams_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="148" parent="37" name="name">
+      <column id="149" parent="38" name="name">
         <state-number>21413</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="149" parent="37" name="status">
+      <column id="150" parent="38" name="status">
         <state-number>21413</state-number>
         <data-type>boolean|0</data-type>
       </column>
-      <column id="150" parent="37" name="created_at">
+      <column id="151" parent="38" name="created_at">
         <state-number>21413</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="151" parent="37" name="updated_at">
+      <column id="152" parent="38" name="updated_at">
         <state-number>21413</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="152" parent="37" name="teams_pkey">
+      <index id="153" parent="38" name="teams_pkey">
         <object-id>35858</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="153" parent="37" name="teams_pkey">
+      <key id="154" parent="38" name="teams_pkey">
         <object-id>35859</object-id>
         <columns>id</columns>
         <underlying-index>teams_pkey</underlying-index>
         <primary>1</primary>
       </key>
-      <column id="154" parent="38" name="id">
+      <column id="155" parent="39" name="id">
         <state-number>21421</state-number>
         <mandatory>1</mandatory>
         <data-type>integer|0</data-type>
         <default-expression>nextval(&apos;users_id_seq&apos;::regclass)</default-expression>
       </column>
-      <column id="155" parent="38" name="provider">
+      <column id="156" parent="39" name="provider">
         <state-number>21421</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="156" parent="38" name="uid">
+      <column id="157" parent="39" name="uid">
         <state-number>21421</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="157" parent="38" name="name">
+      <column id="158" parent="39" name="name">
         <state-number>21421</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="158" parent="38" name="oauth_token">
+      <column id="159" parent="39" name="oauth_token">
         <state-number>21421</state-number>
         <data-type>varchar|0</data-type>
       </column>
-      <column id="159" parent="38" name="oauth_expires_at">
+      <column id="160" parent="39" name="oauth_expires_at">
         <state-number>21421</state-number>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="160" parent="38" name="created_at">
+      <column id="161" parent="39" name="created_at">
         <state-number>21421</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <column id="161" parent="38" name="updated_at">
+      <column id="162" parent="39" name="updated_at">
         <state-number>21421</state-number>
         <mandatory>1</mandatory>
         <data-type>timestamp|0</data-type>
       </column>
-      <index id="162" parent="38" name="users_pkey">
+      <index id="163" parent="39" name="users_pkey">
         <object-id>35946</object-id>
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="163" parent="38" name="users_pkey">
+      <key id="164" parent="39" name="users_pkey">
         <object-id>35947</object-id>
         <columns>id</columns>
         <underlying-index>users_pkey</underlying-index>
@@ -804,29 +807,808 @@
       <database id="7" name="cap_web_app_development">
         <object-id>35820</object-id>
       </database>
-      <schema id="8" parent="6" name="public">
+      <database id="8" name="cap_web_app_production">
+        <object-id>36002</object-id>
+      </database>
+      <schema id="9" parent="6" name="public">
         <object-id>2200</object-id>
         <visible>1</visible>
-        <introspection-timestamp>2016-10-22.20:03:52.381</introspection-timestamp>
+        <introspection-timestamp>2016-10-22.23:24:55.920</introspection-timestamp>
       </schema>
-      <schema id="9" parent="6" name="pg_catalog">
+      <schema id="10" parent="6" name="pg_catalog">
         <object-id>11</object-id>
       </schema>
-      <schema id="10" parent="6" name="pg_toast">
+      <schema id="11" parent="6" name="pg_toast">
         <object-id>99</object-id>
       </schema>
-      <schema id="11" parent="6" name="pg_temp_1">
+      <schema id="12" parent="6" name="pg_temp_1">
         <object-id>11816</object-id>
       </schema>
-      <schema id="12" parent="6" name="pg_toast_temp_1">
+      <schema id="13" parent="6" name="pg_toast_temp_1">
         <object-id>11817</object-id>
       </schema>
-      <schema id="13" parent="6" name="information_schema">
+      <schema id="14" parent="6" name="information_schema">
         <object-id>12349</object-id>
       </schema>
     </database-model>
   </data-source>
   <data-source name="Rails cap_web_app_rubymine: production" uuid="5ab01ad7-a83e-4c9d-bd15-24e5233b0854">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.6">
+      <database id="1" name="cap_web_app_production">
+        <object-id>36002</object-id>
+        <visible>1</visible>
+      </database>
+      <database id="2" name="postgres">
+        <object-id>12641</object-id>
+      </database>
+      <database id="3" name="ruby-getting-started_development">
+        <object-id>16384</object-id>
+      </database>
+      <database id="4" name="ruby-getting-started_test">
+        <object-id>16385</object-id>
+      </database>
+      <database id="5" name="ruby-test_development">
+        <object-id>16435</object-id>
+      </database>
+      <database id="6" name="ruby-test_test">
+        <object-id>16436</object-id>
+      </database>
+      <database id="7" name="cap_web_app_development">
+        <object-id>35820</object-id>
+      </database>
+      <database id="8" name="cap_web_app_test">
+        <object-id>35821</object-id>
+      </database>
+      <schema id="9" parent="1" name="public">
+        <object-id>2200</object-id>
+        <visible>1</visible>
+        <introspection-state-number>21852</introspection-state-number>
+        <introspection-timestamp>2016-10-22.20:40:33.244</introspection-timestamp>
+      </schema>
+      <schema id="10" parent="1" name="pg_catalog">
+        <object-id>11</object-id>
+      </schema>
+      <schema id="11" parent="1" name="pg_toast">
+        <object-id>99</object-id>
+      </schema>
+      <schema id="12" parent="1" name="pg_temp_1">
+        <object-id>11816</object-id>
+      </schema>
+      <schema id="13" parent="1" name="pg_toast_temp_1">
+        <object-id>11817</object-id>
+      </schema>
+      <schema id="14" parent="1" name="information_schema">
+        <object-id>12349</object-id>
+      </schema>
+      <sequence id="15" parent="9" name="attendance_types_id_seq">
+        <object-id>36129</object-id>
+        <state-number>21847</state-number>
+      </sequence>
+      <sequence id="16" parent="9" name="capitalizable_groups_id_seq">
+        <object-id>36052</object-id>
+        <state-number>21840</state-number>
+      </sequence>
+      <sequence id="17" parent="9" name="capitalization_results_id_seq">
+        <object-id>36019</object-id>
+        <state-number>21844</state-number>
+      </sequence>
+      <sequence id="18" parent="9" name="employees_id_seq">
+        <object-id>36082</object-id>
+        <state-number>21843</state-number>
+      </sequence>
+      <sequence id="19" parent="9" name="history_data_id_seq">
+        <object-id>36146</object-id>
+        <state-number>21849</state-number>
+      </sequence>
+      <sequence id="20" parent="9" name="iterations_id_seq">
+        <object-id>36041</object-id>
+        <state-number>21839</state-number>
+      </sequence>
+      <sequence id="21" parent="9" name="projects_id_seq">
+        <object-id>36063</object-id>
+        <state-number>21841</state-number>
+      </sequence>
+      <sequence id="22" parent="9" name="students_id_seq">
+        <object-id>36170</object-id>
+        <state-number>21852</state-number>
+      </sequence>
+      <sequence id="23" parent="9" name="team_members_id_seq">
+        <object-id>36074</object-id>
+        <state-number>21842</state-number>
+      </sequence>
+      <sequence id="24" parent="9" name="teams_id_seq">
+        <object-id>36030</object-id>
+        <state-number>21838</state-number>
+      </sequence>
+      <sequence id="25" parent="9" name="users_id_seq">
+        <object-id>36118</object-id>
+        <state-number>21846</state-number>
+      </sequence>
+      <table id="26" parent="9" name="ar_internal_metadata">
+        <object-id>36011</object-id>
+        <state-number>21836</state-number>
+      </table>
+      <table id="27" parent="9" name="attendance_types">
+        <object-id>36131</object-id>
+        <state-number>21848</state-number>
+      </table>
+      <table id="28" parent="9" name="capitalizable_groups">
+        <object-id>36054</object-id>
+        <state-number>21845</state-number>
+      </table>
+      <table id="29" parent="9" name="capitalization_results">
+        <object-id>36021</object-id>
+        <state-number>21845</state-number>
+      </table>
+      <table id="30" parent="9" name="employees">
+        <object-id>36084</object-id>
+        <state-number>21848</state-number>
+      </table>
+      <table id="31" parent="9" name="history_data">
+        <object-id>36148</object-id>
+        <state-number>21850</state-number>
+      </table>
+      <table id="32" parent="9" name="iterations">
+        <object-id>36043</object-id>
+        <state-number>21850</state-number>
+      </table>
+      <table id="33" parent="9" name="projects">
+        <object-id>36065</object-id>
+        <state-number>21845</state-number>
+      </table>
+      <table id="34" parent="9" name="schema_migrations">
+        <object-id>36003</object-id>
+        <state-number>21835</state-number>
+      </table>
+      <table id="35" parent="9" name="states">
+        <object-id>36163</object-id>
+        <state-number>21851</state-number>
+      </table>
+      <table id="36" parent="9" name="students">
+        <object-id>36172</object-id>
+        <state-number>21852</state-number>
+      </table>
+      <table id="37" parent="9" name="team_members">
+        <object-id>36076</object-id>
+        <state-number>21845</state-number>
+      </table>
+      <table id="38" parent="9" name="teams">
+        <object-id>36032</object-id>
+        <state-number>21845</state-number>
+      </table>
+      <table id="39" parent="9" name="users">
+        <object-id>36120</object-id>
+        <state-number>21846</state-number>
+      </table>
+      <column id="40" parent="26" name="key">
+        <state-number>21836</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="41" parent="26" name="value">
+        <state-number>21836</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="42" parent="26" name="created_at">
+        <state-number>21836</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="43" parent="26" name="updated_at">
+        <state-number>21836</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="44" parent="26" name="ar_internal_metadata_pkey">
+        <object-id>36017</object-id>
+        <columns>key</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="45" parent="26" name="ar_internal_metadata_pkey">
+        <object-id>36018</object-id>
+        <columns>key</columns>
+        <underlying-index>ar_internal_metadata_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="46" parent="27" name="id">
+        <state-number>21847</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;attendance_types_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="47" parent="27" name="name">
+        <state-number>21847</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="48" parent="27" name="attendance_rate">
+        <state-number>21847</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="49" parent="27" name="description">
+        <state-number>21847</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="50" parent="27" name="created_at">
+        <state-number>21847</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="51" parent="27" name="updated_at">
+        <state-number>21847</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="52" parent="27" name="attendance_types_pkey">
+        <object-id>36138</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="53" parent="27" name="attendance_types_pkey">
+        <object-id>36139</object-id>
+        <columns>id</columns>
+        <underlying-index>attendance_types_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="54" parent="28" name="id">
+        <state-number>21840</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;capitalizable_groups_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="55" parent="28" name="capitalizable_rate">
+        <state-number>21840</state-number>
+        <data-type>double precision|0</data-type>
+      </column>
+      <column id="56" parent="28" name="description">
+        <state-number>21840</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="57" parent="28" name="created_at">
+        <state-number>21840</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="58" parent="28" name="updated_at">
+        <state-number>21840</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="59" parent="28" name="capitalizable_groups_pkey">
+        <object-id>36061</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="60" parent="28" name="capitalizable_groups_pkey">
+        <object-id>36062</object-id>
+        <columns>id</columns>
+        <underlying-index>capitalizable_groups_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="61" parent="29" name="id">
+        <state-number>21837</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;capitalizations_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="62" parent="29" name="project_name">
+        <state-number>21837</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="63" parent="29" name="employee_name">
+        <state-number>21837</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="64" parent="29" name="date">
+        <state-number>21837</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="65" parent="29" name="hours">
+        <state-number>21837</state-number>
+        <data-type>double precision|0</data-type>
+      </column>
+      <column id="66" parent="29" name="full_project_name">
+        <state-number>21837</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="67" parent="29" name="hourly_rate">
+        <state-number>21837</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="68" parent="29" name="iteration_id">
+        <state-number>21837</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="69" parent="29" name="created_at">
+        <state-number>21837</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="70" parent="29" name="updated_at">
+        <state-number>21837</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="71" parent="29" name="capitalization_results_pkey">
+        <object-id>36028</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="72" parent="29" name="capitalization_results_pkey">
+        <object-id>36029</object-id>
+        <columns>id</columns>
+        <underlying-index>capitalization_results_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="73" parent="29" name="fk_rails_d9f6804f6f">
+        <object-id>36108</object-id>
+        <columns>iteration_id</columns>
+        <ref-key>~.iterations.iterations_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="74" parent="30" name="id">
+        <state-number>21843</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;employees_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="75" parent="30" name="name">
+        <state-number>21843</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="76" parent="30" name="title">
+        <state-number>21843</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="77" parent="30" name="status">
+        <state-number>21843</state-number>
+        <data-type>boolean|0</data-type>
+      </column>
+      <column id="78" parent="30" name="employment_type">
+        <state-number>21843</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="79" parent="30" name="hourly_rate">
+        <state-number>21843</state-number>
+        <data-type>double precision|0</data-type>
+      </column>
+      <column id="80" parent="30" name="location">
+        <state-number>21843</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="81" parent="30" name="leave_days">
+        <state-number>21843</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="82" parent="30" name="capitalizable_group_id">
+        <state-number>21843</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="83" parent="30" name="commencement_date">
+        <state-number>21843</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="84" parent="30" name="termination_date">
+        <state-number>21843</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="85" parent="30" name="created_at">
+        <state-number>21843</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="86" parent="30" name="updated_at">
+        <state-number>21843</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="87" parent="30" name="attendance_type_id">
+        <state-number>21848</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <index id="88" parent="30" name="employees_pkey">
+        <object-id>36091</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="89" parent="30" name="index_employees_on_attendance_type_id">
+        <object-id>36140</object-id>
+        <columns>attendance_type_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="90" parent="30" name="employees_pkey">
+        <object-id>36092</object-id>
+        <columns>id</columns>
+        <underlying-index>employees_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="91" parent="30" name="fk_rails_9bde9d7f69">
+        <object-id>36113</object-id>
+        <columns>capitalizable_group_id</columns>
+        <ref-key>~.capitalizable_groups.capitalizable_groups_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="92" parent="30" name="fk_rails_2d44e482ed">
+        <object-id>36141</object-id>
+        <columns>attendance_type_id</columns>
+        <ref-key>~.attendance_types.attendance_types_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="93" parent="31" name="id">
+        <state-number>21849</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;history_data_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="94" parent="31" name="iteration_data">
+        <state-number>21849</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="95" parent="31" name="result_data">
+        <state-number>21849</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="96" parent="31" name="created_at">
+        <state-number>21849</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="97" parent="31" name="updated_at">
+        <state-number>21849</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="98" parent="31" name="iteration_id">
+        <state-number>21850</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <index id="99" parent="31" name="history_data_pkey">
+        <object-id>36155</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="100" parent="31" name="index_history_data_on_iteration_id">
+        <object-id>36157</object-id>
+        <columns>iteration_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="101" parent="31" name="history_data_pkey">
+        <object-id>36156</object-id>
+        <columns>id</columns>
+        <underlying-index>history_data_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="102" parent="31" name="fk_rails_19ed2ad69c">
+        <object-id>36158</object-id>
+        <columns>iteration_id</columns>
+        <ref-key>~.iterations.iterations_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="103" parent="32" name="id">
+        <state-number>21839</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;iterations_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="104" parent="32" name="name">
+        <state-number>21839</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="105" parent="32" name="start_date">
+        <state-number>21839</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="106" parent="32" name="end_date">
+        <state-number>21839</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="107" parent="32" name="work_day">
+        <state-number>21839</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="108" parent="32" name="created_at">
+        <state-number>21839</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="109" parent="32" name="updated_at">
+        <state-number>21839</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="110" parent="32" name="iterations_pkey">
+        <object-id>36050</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="111" parent="32" name="iterations_pkey">
+        <object-id>36051</object-id>
+        <columns>id</columns>
+        <underlying-index>iterations_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="112" parent="33" name="id">
+        <state-number>21841</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;projects_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="113" parent="33" name="name">
+        <state-number>21841</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="114" parent="33" name="status">
+        <state-number>21841</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="115" parent="33" name="is_capitalizable">
+        <state-number>21841</state-number>
+        <data-type>boolean|0</data-type>
+      </column>
+      <column id="116" parent="33" name="weight">
+        <state-number>21841</state-number>
+        <data-type>double precision|0</data-type>
+      </column>
+      <column id="117" parent="33" name="release_date">
+        <state-number>21841</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="118" parent="33" name="description">
+        <state-number>21841</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="119" parent="33" name="team_id">
+        <state-number>21841</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="120" parent="33" name="created_at">
+        <state-number>21841</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="121" parent="33" name="updated_at">
+        <state-number>21841</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="122" parent="33" name="projects_pkey">
+        <object-id>36072</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="123" parent="33" name="projects_pkey">
+        <object-id>36073</object-id>
+        <columns>id</columns>
+        <underlying-index>projects_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="124" parent="33" name="fk_rails_ecc227a0c2">
+        <object-id>36093</object-id>
+        <columns>team_id</columns>
+        <ref-key>~.teams.teams_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="125" parent="34" name="version">
+        <state-number>21835</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar|0</data-type>
+      </column>
+      <index id="126" parent="34" name="schema_migrations_pkey">
+        <object-id>36009</object-id>
+        <columns>version</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="127" parent="34" name="schema_migrations_pkey">
+        <object-id>36010</object-id>
+        <columns>version</columns>
+        <underlying-index>schema_migrations_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="128" parent="35" name="state">
+        <state-number>21851</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="129" parent="35" name="value">
+        <state-number>21851</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <index id="130" parent="35" name="index_states_on_state">
+        <object-id>36169</object-id>
+        <columns>state</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <column id="131" parent="36" name="id">
+        <state-number>21852</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;students_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="132" parent="36" name="name">
+        <state-number>21852</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="133" parent="36" name="address">
+        <state-number>21852</state-number>
+        <data-type>text|0</data-type>
+      </column>
+      <column id="134" parent="36" name="created_at">
+        <state-number>21852</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="135" parent="36" name="updated_at">
+        <state-number>21852</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="136" parent="36" name="students_pkey">
+        <object-id>36179</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="137" parent="36" name="students_pkey">
+        <object-id>36180</object-id>
+        <columns>id</columns>
+        <underlying-index>students_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="138" parent="37" name="id">
+        <state-number>21842</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;team_members_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="139" parent="37" name="team_id">
+        <state-number>21842</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="140" parent="37" name="employee_id">
+        <state-number>21842</state-number>
+        <data-type>integer|0</data-type>
+      </column>
+      <column id="141" parent="37" name="dedication_weight">
+        <state-number>21842</state-number>
+        <data-type>double precision|0</data-type>
+      </column>
+      <column id="142" parent="37" name="created_at">
+        <state-number>21842</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="143" parent="37" name="updated_at">
+        <state-number>21842</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="144" parent="37" name="team_members_pkey">
+        <object-id>36080</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="145" parent="37" name="team_members_pkey">
+        <object-id>36081</object-id>
+        <columns>id</columns>
+        <underlying-index>team_members_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="146" parent="37" name="fk_rails_194b5b076d">
+        <object-id>36103</object-id>
+        <columns>team_id</columns>
+        <ref-key>~.teams.teams_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="147" parent="37" name="fk_rails_1fe2517c5b">
+        <object-id>36098</object-id>
+        <columns>employee_id</columns>
+        <ref-key>~.employees.employees_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="148" parent="38" name="id">
+        <state-number>21838</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;teams_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="149" parent="38" name="name">
+        <state-number>21838</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="150" parent="38" name="status">
+        <state-number>21838</state-number>
+        <data-type>boolean|0</data-type>
+      </column>
+      <column id="151" parent="38" name="created_at">
+        <state-number>21838</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="152" parent="38" name="updated_at">
+        <state-number>21838</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="153" parent="38" name="teams_pkey">
+        <object-id>36039</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="154" parent="38" name="teams_pkey">
+        <object-id>36040</object-id>
+        <columns>id</columns>
+        <underlying-index>teams_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="155" parent="39" name="id">
+        <state-number>21846</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer|0</data-type>
+        <default-expression>nextval(&apos;users_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="156" parent="39" name="provider">
+        <state-number>21846</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="157" parent="39" name="uid">
+        <state-number>21846</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="158" parent="39" name="name">
+        <state-number>21846</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="159" parent="39" name="oauth_token">
+        <state-number>21846</state-number>
+        <data-type>varchar|0</data-type>
+      </column>
+      <column id="160" parent="39" name="oauth_expires_at">
+        <state-number>21846</state-number>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="161" parent="39" name="created_at">
+        <state-number>21846</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <column id="162" parent="39" name="updated_at">
+        <state-number>21846</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+      </column>
+      <index id="163" parent="39" name="users_pkey">
+        <object-id>36127</object-id>
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="164" parent="39" name="users_pkey">
+        <object-id>36128</object-id>
+        <columns>id</columns>
+        <underlying-index>users_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
 </component>
