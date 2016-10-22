@@ -4,6 +4,7 @@ class CapHourCalculationController < ApplicationController
   include HistoryDataHelper
 
   def index
+
     @results = get_result_rows(current_iteration)
     respond_to do |format|
       format.html
